@@ -5,7 +5,7 @@
 replicaCount: 1
 hashBranch: ''
 image:
-  repository: ${STANDUP_REGISTRY}
+  repository: ${APP_REGISTRY}
   tag: ${IMAGE_TAG}
   pullPolicy: IfNotPresent
 
@@ -34,11 +34,11 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   path: /
   hosts:
-  - ${INGRESS_ENVIRONMENT_PREFIX}toto.${DOMAIN_NAME}
+  - ${INGRESS_ENVIRONMENT_PREFIX}${APP_NAME}${DOMAIN_NAME}
   tls:
-  - secretName: toto-crt-secret${HASH_BRANCH_NAME}
+  - secretName: ${APP_NAME}crt-secret${HASH_BRANCH_NAME}
     hosts:
-    - ${INGRESS_ENVIRONMENT_PREFIX}toto.${DOMAIN_NAME}
+    - ${INGRESS_ENVIRONMENT_PREFIX}${APP_NAME}${DOMAIN_NAME}
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
