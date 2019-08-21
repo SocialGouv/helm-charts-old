@@ -1,0 +1,6 @@
+# intelliJ
+.idea/
+
+# misc
+.DS_Store
+.secret
