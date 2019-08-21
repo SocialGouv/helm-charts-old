@@ -34,11 +34,11 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   path: /
   hosts:
-  - ${INGRESS_ENVIRONMENT_PREFIX}${APP_NAME}${DOMAIN_NAME}
+  - ${INGRESS_ENVIRONMENT_PREFIX}${APP_NAME}.${DOMAIN_NAME}
   tls:
-  - secretName: ${APP_NAME}crt-secret${HASH_BRANCH_NAME}
+  - secretName: ${APP_NAME}-crt-secret${HASH_BRANCH_NAME}
     hosts:
-    - ${INGRESS_ENVIRONMENT_PREFIX}${APP_NAME}${DOMAIN_NAME}
+    - ${INGRESS_ENVIRONMENT_PREFIX}${APP_NAME}.${DOMAIN_NAME}
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
