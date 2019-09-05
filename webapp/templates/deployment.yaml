@@ -40,8 +40,14 @@ spec:
               port: {{ .Values.deployment.port }}
             initialDelaySeconds: {{ .Values.deployment.readinessProbe.initialDelaySeconds }}
             periodSeconds: {{ .Values.deployment.readinessProbe.periodSeconds }}
+          {{- with .Values.env }}
+          env:
+{{ toYaml . | indent 10 }}
+          {{- end }}
+          {{- with .Values.resources }}
           resources:
 {{ toYaml .Values.resources | indent 12 }}
+          {{- end }}
     {{- with .Values.nodeSelector }}
       nodeSelector:
 {{ toYaml . | indent 8 }}

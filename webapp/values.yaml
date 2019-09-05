@@ -52,6 +52,15 @@ resources: {}
   #  cpu: 100m
 #  memory: 128Mi
 
+env: {}
+#- name: API_URL
+#  value: "https://...."
+#- name: SECRET
+#  valueFrom:
+#    secretKeyRef:
+#      name: secret_name
+#      key: SECRET_KEY
+
 nodeSelector: {}
 
 tolerations: []
