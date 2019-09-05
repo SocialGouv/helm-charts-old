@@ -1,4 +1,4 @@
-# Default values for webapp.
+# Default values for Mas webapp. https://github.com/SocialGouv/helm-charts/blob/master/webapp/values.yaml
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -25,7 +25,7 @@ service:
   port: ${PORT}
 
 certificate:
-  clusterIssuer: letsencrypt-prod
+  clusterIssuer: ${LETSENCRYPT_ISSUER}
 ingress:
   enabled: true
   annotations:
@@ -51,6 +51,15 @@ resources: {}
   # requests:
   #  cpu: 100m
 #  memory: 128Mi
+
+env: {}
+#- name: API_URL
+#  value: "https://...."
+#- name: SECRET
+#  valueFrom:
+#    secretKeyRef:
+#      name: secret_name
+#      key: SECRET_KEY
 
 nodeSelector: {}
 
