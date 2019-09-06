@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/SocialGouv/helm-charts/compare/v1.0.0...v1.0.1) (2019-09-06)
+
+
+### Bug Fixes
+
+* **ci:** force bump to test release process ([23972bd](https://github.com/SocialGouv/helm-charts/commit/23972bd))
+
 # 1.0.0 (2019-09-06)
 
 
