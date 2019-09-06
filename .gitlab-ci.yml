@@ -1,0 +1,4 @@
+Lint:
+  image: ${CI_REGISTRY}/socialgouv/docker/helm:0.3.0
+  script: 
+    - helm lint
