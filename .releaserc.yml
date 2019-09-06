@@ -1,7 +1,8 @@
 plugins:
   - "@semantic-release/commit-analyzer"
   - - "@semantic-release/exec"
-    - prepareCmd : "sed -i -e 's/version: .*/version: ${nextRelease.version}/g' */Chart.yaml"
+    - prepareCmd: "sed -i -e 's/version: .*/version: ${nextRelease.version}/g' */Chart.yaml"
+      publishCmd: helm package webapp --destination dist/
   - "@semantic-release/release-notes-generator"
   - "@semantic-release/changelog"
   - - "@semantic-release/git"
