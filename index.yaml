@@ -3,11 +3,20 @@ entries:
   webapp:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-09-05T18:01:19.762873422+02:00
+    created: "2019-09-08T21:17:14.171778718Z"
+    description: Incubateur Webapp Helm chart for Kubernetes
+    digest: fa4eb4426487cfa766015850154d2547c7eabb0946875c2c631824cc792e901b
+    name: webapp
+    urls:
+    - https://github.com/SocialGouv/helm-charts/releases/download/1.0.7/webapp-1.0.7.tgz
+    version: 1.0.7
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-09-05T18:01:19.762873422+02:00"
     description: Incubateur Webapp Helm chart for Kubernetes
     digest: ec80f253942e8e98b93d39e6ef0bd158c149daa0eae74d358ec21d63a9427e8f
     name: webapp
     urls:
     - https://socialgouv.github.io/helm-charts/webapp-0.1.0.tgz
     version: 0.1.0
-generated: 2019-09-05T18:01:19.762140144+02:00
+generated: "2019-09-08T21:17:14.170867402Z"
