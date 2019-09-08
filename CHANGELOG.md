@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/SocialGouv/helm-charts/compare/v1.0.7...v1.0.8) (2019-09-08)
+
+
+### Bug Fixes
+
+* **release:** use gitTag instead of version in github url ([60d4a12](https://github.com/SocialGouv/helm-charts/commit/60d4a12))
+
 ## [1.0.7](https://github.com/SocialGouv/helm-charts/compare/v1.0.6...v1.0.7) (2019-09-08)
 
 
