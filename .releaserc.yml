@@ -1,14 +1,23 @@
 plugins:
   - "@semantic-release/commit-analyzer"
   - - "@semantic-release/exec"
-    - prepareCmd: "mkdir -p dist && sed -i -e 's/version: .*/version: ${nextRelease.version}/g' */Chart.yaml"
-      publishCmd: helm package webapp --destination dist/
+    - prepareCmd: "
+        sed -i -e 's/version: .*/version: ${nextRelease.version}/g' */Chart.yaml &&
+        mkdir -p dist &&
+        helm package webapp --destination dist/ &&
+        helm repo index ./dist --url ${RELEASE_URL}/${nextRelease.version}
+        "
   - "@semantic-release/release-notes-generator"
   - "@semantic-release/changelog"
   - - "@semantic-release/git"
     - assets:
       - CHANGELOG.md
-      message: "chore(release): version ${nextRelease.version}\n\n${nextRelease.notes}"
+      message: "
+        chore(release): version ${nextRelease.version}
+        \n
+        \n
+        ${nextRelease.notes}
+      "
   - - "@semantic-release/github"
     - assets:
         - path:
