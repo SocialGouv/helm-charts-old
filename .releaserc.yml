@@ -3,9 +3,8 @@ plugins:
   - - "@semantic-release/exec"
     - prepareCmd: "
         sed -i -e 's/version: .*/version: ${nextRelease.version}/g' */Chart.yaml &&
-        mkdir -p dist &&
-        helm package webapp --destination dist/ &&
-        helm repo index ./dist
+        helm package webapp &&
+        helm repo index ./
           --merge index.yaml
           --url $RELEASE_URL/${nextRelease.version}
         "
