@@ -4,7 +4,7 @@ plugins:
     - prepareCmd: "
         sed -i -e 's/version: .*/version: ${nextRelease.version}/g' */Chart.yaml &&
         mkdir -p dist &&
-        helm package webapp --destination dist/ &&
+        helm package charts/* --destination dist/ &&
         helm repo index ./dist
           --merge index.yaml
           --url $RELEASE_URL/${nextRelease.gitTag} &&
@@ -16,7 +16,7 @@ plugins:
     - assets:
         - CHANGELOG.md
         - index.yaml
-        - webapp/Chart.yaml
+        - charts/*/Chart.yaml
       message: "
         chore(release): version ${nextRelease.version}
         \n

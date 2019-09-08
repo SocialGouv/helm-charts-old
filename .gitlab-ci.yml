@@ -6,7 +6,7 @@ Lint:
   stage: "Code Quality"
   image: ${CI_REGISTRY}/socialgouv/docker/helm:0.3.0
   script:
-    - helm lint webapp
+    - helm lint charts/*
 
 #
 
