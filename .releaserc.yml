@@ -11,6 +11,5 @@ plugins:
       message: "chore(release): version ${nextRelease.version}\n\n${nextRelease.notes}"
   - - "@semantic-release/github"
     - assets:
-        - label: Social Gouv Helm Charts
-          path:
+        - path:
             - dist/**
