@@ -26,8 +26,13 @@ Release:
     - git config user.email "45039513+SocialGroovyBot@users.noreply.github.com"
     - git remote set-url origin https://${GITHUB_TOKEN}@github.com/${CI_PROJECT_PATH}.git
   script:
+    # Installing Helm
+    - curl -L https://git.io/get_helm.sh | bash
+    - helm init --client-only
+    # Installing semantic-release
     - yarn config set cache-folder $CI_PROJECT_DIR/.yarn
     - yarn global add semantic-release @semantic-release/changelog @semantic-release/exec @semantic-release/git
+    #
     - semantic-release
 
 #
