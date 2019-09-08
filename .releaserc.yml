@@ -5,7 +5,7 @@ plugins:
         sed -i -e 's/version: .*/version: ${nextRelease.version}/g' */Chart.yaml &&
         mkdir -p dist &&
         helm package webapp --destination dist/ &&
-        helm repo index ./dist --url ${RELEASE_URL}/${nextRelease.version}
+        helm repo index ./dist --url ${env.RELEASE_URL}/${nextRelease.version}
         "
   - "@semantic-release/release-notes-generator"
   - "@semantic-release/changelog"
