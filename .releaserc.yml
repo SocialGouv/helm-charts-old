@@ -2,7 +2,7 @@ plugins:
   - "@semantic-release/commit-analyzer"
   - - "@semantic-release/exec"
     - prepareCmd: "
-        sed -i -e 's/version: .*/version: ${nextRelease.version}/g' */Chart.yaml &&
+        sed -i -e 's/version: .*/version: ${nextRelease.version}/g' charts/*/Chart.yaml &&
         mkdir -p dist &&
         helm package charts/* --destination dist/ &&
         helm repo index ./dist
