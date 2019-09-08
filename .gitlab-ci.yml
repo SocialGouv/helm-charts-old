@@ -38,7 +38,5 @@ Release:
     - yarn global add semantic-release @semantic-release/changelog @semantic-release/exec @semantic-release/git
     #
     - semantic-release
-    #
-    - cat index.yaml
 
 #
