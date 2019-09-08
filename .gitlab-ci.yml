@@ -40,7 +40,5 @@ Release:
     - semantic-release
     #
     - cat index.yaml
-    - ls dist
-    - cat dist/index.yaml
 
 #
