@@ -4,7 +4,6 @@ plugins:
     - prepareCmd: >-
         mkdir -p dist &&
         "sed -i -e 's/version: .*/version: ${nextRelease.version}/g' */Chart.yaml"
-      prepareCmd:
       publishCmd: helm package webapp --destination dist/
   - "@semantic-release/release-notes-generator"
   - "@semantic-release/changelog"
