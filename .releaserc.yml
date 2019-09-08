@@ -7,15 +7,16 @@ plugins:
         helm package webapp --destination dist/ &&
         helm repo index ./dist
           --merge index.yaml
-          --url $RELEASE_URL/${nextRelease.version} &&
+          --url $RELEASE_URL/${nextRelease.gitTag} &&
         mv ./dist/index.yaml ./index.yaml
         "
   - "@semantic-release/release-notes-generator"
   - "@semantic-release/changelog"
   - - "@semantic-release/git"
     - assets:
-      - CHANGELOG.md
-      - index.yaml
+        - CHANGELOG.md
+        - index.yaml
+        - webapp/Chart.yaml
       message: "
         chore(release): version ${nextRelease.version}
         \n
