@@ -16,31 +16,58 @@
 <br>
 <br>
 
-Helm Charts to deploy MAS Incubateur apps in Kubernetes. 
+## Usage
 
-## How to create/update an helm repo with github pages
-
-* Enable github pages in your repo settings
-
-* Create a helm chart
-```bash
-$ helm create <chart_name>
+```
+$ helm repo add socialgouv https://socialgouv.github.io/helm-charts/
+$ helm install socialgouv/<chart> --version <version>
 ```
 
-* Package the helm chart
-```bash
-$ helm package <chart_name>
+## Helm charts
+
+| Project    | Chart                                                                                      | Version                                                                                                                                                     | Links                                                                                                                               |
+| ---------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **webapp** | [`socialgouv/webapp`](https://github.com/SocialGouv/helm-charts/tree/master/charts/webapp) | [![latest](https://img.shields.io/npm/v/@socialgouv/eslint-config-recommended/latest.svg)](https://npmjs.com/package/@socialgouv/eslint-config-recommended) | [![README](https://img.shields.io/badge/README--green.svg)](https://github.com/SocialGouv/helm-charts/blob/charts/webapp/README.md) |
+
+<br>
+<br>
+<br>
+<br>
+
+## Contribute
+
+You need [Helm](https://helm.sh) to contribute. You can install it locally or use it from a container.
+
+```sh
+# Run a container as command
+# From https://hub.docker.com/r/alpine/helm
+alias helm="docker run -ti --rm -v $(pwd):/apps -v ~/.kube:/root/.kube -v ~/.helm:/root/.helm --user $(id -u):$(id -g) alpine/helm"
 ```
 
-* Create the index.yaml that has a list of all of the packages supplied by the repository
-```bash
-$ helm repo index . --url https://socialgouv.github.io/helm-charts/
-```
-
-* Push/merge to master
-
-## How to add the helm repo
+### Create a new chart
 
 ```bash
-$ helm repo add mas-incubateur https://socialgouv.github.io/helm-charts/
+$ helm create charts/<chart_name>
 ```
+
+Ensure to add a documentation right from the start with a `README.md`.  
+You can follow the [`webapp/README.md` as model](./charts/webapp/README.md).
+
+## Release policy
+
+### One click semantic release !
+
+[On a successful `master` branch pipeline click on trigger the `Release` job.](https://gitlab.factory.social.gouv.fr/SocialGouv/helm-charts/pipelines)
+
+### Manual
+
+We manly use [semantic-release](https://github.com/semantic-release/semantic-release) to generate our relese
+You need an [Github token](https://github.com/settings/tokens/new) to release.
+
+```sh
+$ export GITHUB_TOKEN=**********
+$ yarn global add semantic-release @semantic-release/changelog @semantic-release/exec @semantic-release/git
+$ semantic-release
+```
+
+Our [semantic-release config](./.releaserc.yml) will do the heavy lifting ;)
