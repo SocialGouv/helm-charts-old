@@ -10,7 +10,7 @@ image:
   pullPolicy: IfNotPresent
 
 deployment:
-  port: ${PORT}
+  port: 80
   livenessProbe:
     path: /
     initialDelaySeconds: 3
@@ -22,7 +22,7 @@ deployment:
 
 service:
   type: ClusterIP
-  port: ${PORT}
+  port: 80
 
 certificate:
   clusterIssuer: ${LETSENCRYPT_ISSUER}
