@@ -1,3 +1,21 @@
+# [2.0.0](https://github.com/SocialGouv/helm-charts/compare/v1.0.8...v2.0.0) (2019-09-10)
+
+
+### Bug Fixes
+
+* **index:** correct urls ([74dfb15](https://github.com/SocialGouv/helm-charts/commit/74dfb15))
+* **webapp:** use port 80 as default deployment and service port ([2fbe4e6](https://github.com/SocialGouv/helm-charts/commit/2fbe4e6))
+
+
+### Code Refactoring
+
+* mode all charts to charts folder ([83f1b90](https://github.com/SocialGouv/helm-charts/commit/83f1b90))
+
+
+### BREAKING CHANGES
+
+* might affect the build process
+
 ## [1.0.8](https://github.com/SocialGouv/helm-charts/compare/v1.0.7...v1.0.8) (2019-09-08)
 
 
