@@ -25,9 +25,9 @@ $ helm install socialgouv/<chart> --version <version>
 
 ## Helm charts
 
-| Project    | Chart                                                                                      | Version                                                                                                                                                     | Links                                                                                                                               |
-| ---------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **webapp** | [`socialgouv/webapp`](./charts/webapp) | [![latest](https://img.shields.io/npm/v/@socialgouv/eslint-config-recommended/latest.svg)](https://npmjs.com/package/@socialgouv/eslint-config-recommended) | [![README](https://img.shields.io/badge/README--green.svg)](./charts/webapp/README.md) |
+| Project    | Chart                                                                                      | Links                                                                                                                               |
+| ---------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **webapp** | [`socialgouv/webapp`](./charts/webapp) | [![README](https://img.shields.io/badge/README--green.svg)](./charts/webapp/README.md) |
 
 <br>
 <br>
