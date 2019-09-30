@@ -8,7 +8,7 @@ plugins:
         helm repo index ./dist
           --merge index.yaml
           --url $RELEASE_URL/${nextRelease.gitTag} &&
-        mv ./dist/index.yaml ./index.yaml
+        cp ./dist/index.yaml ./index.yaml
         "
   - "@semantic-release/release-notes-generator"
   - "@semantic-release/changelog"
