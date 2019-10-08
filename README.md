@@ -61,7 +61,7 @@ You can follow the [`webapp/README.md` as model](./charts/webapp/README.md).
 
 ### Manual
 
-We manly use [semantic-release](https://github.com/semantic-release/semantic-release) to generate our relese
+We manly use [semantic-release](https://github.com/semantic-release/semantic-release) to generate our release
 You need an [Github token](https://github.com/settings/tokens/new) to release.
 
 ```sh
