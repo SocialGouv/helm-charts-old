@@ -40,6 +40,13 @@ spec:
               port: {{ .Values.deployment.port }}
             initialDelaySeconds: {{ .Values.deployment.readinessProbe.initialDelaySeconds }}
             periodSeconds: {{ .Values.deployment.readinessProbe.periodSeconds }}
+            resources:
+              requests:
+                cpu: {{ .Values.deployment.resources.requests.cpu }}
+                memory: {{ .Values.deployment.resources.requests.memory }}
+              limits:
+                cpu: {{ .Values.deployment.resources.limits.cpu }}
+                memory: {{ .Values.deployment.resources.limits.memory }}
           {{- with .Values.env }}
           env:
 {{ toYaml . | indent 10 }}
