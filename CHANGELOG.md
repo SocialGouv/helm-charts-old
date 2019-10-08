@@ -1,3 +1,11 @@
+## [2.0.2](https://github.com/SocialGouv/helm-charts/compare/v2.0.1...v2.0.2) (2019-10-08)
+
+
+### Bug Fixes
+
+* misspelling release ([4e71b16](https://github.com/SocialGouv/helm-charts/commit/4e71b16))
+* misspelling release ([fff5c6a](https://github.com/SocialGouv/helm-charts/commit/fff5c6a))
+
 ## [2.0.1](https://github.com/SocialGouv/helm-charts/compare/v2.0.0...v2.0.1) (2019-09-30)
 
 
