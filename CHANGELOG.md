@@ -1,3 +1,11 @@
+# [2.1.0](https://github.com/SocialGouv/helm-charts/compare/v2.0.3...v2.1.0) (2019-10-08)
+
+
+### Features
+
+* add ingress annotation to redirect http to https ([9765f39](https://github.com/SocialGouv/helm-charts/commit/9765f39))
+* add ingress annotation to redirect http to https ([76e4d2f](https://github.com/SocialGouv/helm-charts/commit/76e4d2f))
+
 ## [2.0.3](https://github.com/SocialGouv/helm-charts/compare/v2.0.2...v2.0.3) (2019-10-08)
 
 
