@@ -1,3 +1,11 @@
+## [2.0.3](https://github.com/SocialGouv/helm-charts/compare/v2.0.2...v2.0.3) (2019-10-08)
+
+
+### Bug Fixes
+
+* wrong identation for resources limits ([917ceb0](https://github.com/SocialGouv/helm-charts/commit/917ceb0))
+* wrong identation resources ([3ef74ab](https://github.com/SocialGouv/helm-charts/commit/3ef74ab))
+
 ## [2.0.2](https://github.com/SocialGouv/helm-charts/compare/v2.0.1...v2.0.2) (2019-10-08)
 
 

@@ -3,6 +3,25 @@ entries:
   webapp:
   - apiVersion: v1
     appVersion: "1"
+    created: "2019-10-08T11:18:53.213449019Z"
+    description: Social Gouv Webapp Helm chart for Kubernetes
+    digest: 12383d4a603f1901e8d41b6a243580cbc9bfc9a9dcb1867763526603b36a7043
+    home: https://github.com/SocialGouv/helm-charts/tree/master/charts/webapp
+    icon: https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg
+    keywords:
+    - ingress
+    - nginx
+    maintainers:
+    - email: dsi-incubateur@sg.social.gouv.fr
+      name: Incubateur des Ministères Sociaux
+    name: webapp
+    sources:
+    - https://github.com/SocialGouv/helm-charts/tree/master/charts/webapp
+    urls:
+    - https://github.com/SocialGouv/helm-charts/releases/download/v2.0.3/webapp-2.0.3.tgz
+    version: 2.0.3
+  - apiVersion: v1
+    appVersion: "1"
     created: "2019-10-08T09:45:05.540946325Z"
     description: Social Gouv Webapp Helm chart for Kubernetes
     digest: 32169f7175320c7264e7f75b6fc00ef4d29fb80848c25d072a3354b4caabea3f
@@ -85,4 +104,4 @@ entries:
     urls:
     - https://github.com/SocialGouv/helm-charts/releases/download/v0.1.0/webapp-0.1.0.tgz
     version: 0.1.0
-generated: "2019-10-08T09:45:05.540244963Z"
+generated: "2019-10-08T11:18:53.212784718Z"
