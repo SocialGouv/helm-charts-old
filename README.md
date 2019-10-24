@@ -25,9 +25,10 @@ $ helm install socialgouv/<chart> --version <version>
 
 ## Helm charts
 
-| Project    | Chart                                                                                      | Links                                                                                                                               |
-| ---------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **webapp** | [`socialgouv/webapp`](./charts/webapp) | [![README](https://img.shields.io/badge/README--green.svg)](./charts/webapp/README.md) |
+| Project         | Chart                                            | Links                                                                                       |
+| --------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------- |
+| **webapp**      | [`socialgouv/webapp`](./charts/webapp)           | [![README](https://img.shields.io/badge/README--green.svg)](./charts/webapp/README.md)      |
+| **certificate** | [`socialgouv/certificate`](./charts/certificate) | [![README](https://img.shields.io/badge/README--green.svg)](./charts/certificate/README.md) |
 
 <br>
 <br>
