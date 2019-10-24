@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/SocialGouv/helm-charts/compare/v2.1.0...v2.2.0) (2019-10-24)
+
+
+### Features
+
+* **certificate:** create socialgouv/certificate chart ([#10](https://github.com/SocialGouv/helm-charts/issues/10)) ([8c06e54](https://github.com/SocialGouv/helm-charts/commit/8c06e5446b75016460b90c4c8d12e9981aa0aefd))
+
 # [2.1.0](https://github.com/SocialGouv/helm-charts/compare/v2.0.3...v2.1.0) (2019-10-08)
 
 
