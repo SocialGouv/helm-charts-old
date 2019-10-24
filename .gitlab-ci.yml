@@ -18,7 +18,8 @@ Release:
   stage: "Release"
   image: node:10
   only:
-    - master
+    refs:
+      - branches
   when: manual
   variables:
     GIT_AUTHOR_EMAIL: 45039513+SocialGroovyBot@users.noreply.github.com
