@@ -10,14 +10,14 @@ Test socialgouv/certificate:
   image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:0.8.1
   script:
     - kubectl config set-context --current --namespace=default
-    - helm delete --purge socialgouv-certificate-test || true
+    - helm delete --purge helm-chart-certificate-${CI_JOB_ID} || true
     - helm upgrade
-        socialgouv-certificate-test
+        helm-chart-certificate-${CI_JOB_ID}
         ./charts/certificate
         --debug
         --install
         --values ./charts/certificate/values.test.yaml
         --wait
-    - helm test socialgouv-certificate-test --cleanup --debug
+    - helm test helm-chart-certificate-${CI_JOB_ID} --cleanup --debug
   after_script:
-    - helm delete --purge socialgouv-certificate-test || true
+    - helm delete --purge helm-chart-certificate-${CI_JOB_ID} || true
