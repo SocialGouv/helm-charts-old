@@ -1,0 +1,4 @@
+# Test values for certificate.
+
+hosts:
+  - test.certificate.dev.fabrique.social.gouv.fr

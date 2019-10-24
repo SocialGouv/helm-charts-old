@@ -1,0 +1,23 @@
+#
+
+Test socialgouv/certificate:
+  stage: "Code Quality"
+  environment:
+    name: fabrique-dev
+  only:
+    changes:
+      - charts/certificate/**/*
+  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:0.8.1
+  script:
+    - kubectl config set-context --current --namespace=default
+    - helm delete --purge socialgouv-certificate-test || true
+    - helm upgrade
+        socialgouv-certificate-test
+        ./charts/certificate
+        --debug
+        --install
+        --values ./charts/certificate/values.test.yaml
+        --wait
+    - helm test socialgouv-certificate-test --cleanup --debug
+  after_script:
+    - helm delete --purge socialgouv-certificate-test || true
