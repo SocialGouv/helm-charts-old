@@ -5,7 +5,7 @@
 ## TL;DR
 
 ```sh
-$ helm install socialgouv/webapp
+$ helm install socialgouv/certificate
 #
 $ helm upgrade my-release socialgouv/certificate --install
 ```
@@ -24,7 +24,7 @@ This chart bootstraps a certificate resource on a [Kubernetes](http://kubernetes
 To install the chart with the release name `my-release`:
 
 ```sh
-$ helm install socialgouv/webapp --name my-release
+$ helm install socialgouv/certificate --name my-release
 #
 $ helm upgrade my-release socialgouv/certificate --install
 ```

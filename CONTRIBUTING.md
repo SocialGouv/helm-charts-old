@@ -15,7 +15,7 @@ $ helm create charts/<chart_name>
 ```
 
 Ensure to add a documentation right from the start with a `README.md`.  
-You can follow the [`webapp/README.md` as model](./charts/webapp/README.md).
+You can follow the [`certificate/README.md` as model](./charts/certificate/README.md).
 
 ## Release policy
 
