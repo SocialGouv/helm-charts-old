@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "{{ include "certificate.fullname" . }}-test"
+  name: "{{ include "certificate.fullname" . }}-test-env"
   labels:
 {{ include "certificate.labels" . | indent 4 }}
   annotations:
