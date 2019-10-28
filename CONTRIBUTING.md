@@ -27,6 +27,8 @@ $ helm create charts/<chart_name>
    Ensure to add a test right from the start with in a local `.gitlab-ci.yml`.  
    You can follow the [`certificate/.gitlab-ci.yml` as model](./charts/certificate/.gitlab-ci.yml).
 
+1. Include this `.gitlab-ci.yml` in the root `.gitlab-ci.yml`.
+
 1. Edit the local `Chart.yaml`  
    I recommend that you pick an images from wikimedia ;)  
    Ensure that the version in the local `Chart.yaml` is the same as the other.  
