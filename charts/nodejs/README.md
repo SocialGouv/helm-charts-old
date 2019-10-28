@@ -45,12 +45,24 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the chart and their default values.
 
-| Parameter          | Description                    | Default               |
-| ------------------ | ------------------------------ | --------------------- |
-| `annotations`      | nodejs annotations        | `{}`                  |
-| `clusterIssuer`    | the cluster nodejs issuer | `letsencrypt-staging` |
-| `fullnameOverride` | will override the name         | ``                    |
-| `hosts`            | list of hosts                  | `[]`                  |
-| `nameOverride`     | will override the name         | ``                    |
+| Parameter                                       | Description                         | Default                               |
+| ----------------------------------------------- | ----------------------------------- | ------------------------------------- |
+| `image.pullPolicy`                              | NodeJs Image pull policy            | `IfNotPresent`                        |
+| `image.repository`                              | NodeJs Image name                   | `node`                                |
+| `image.tag`                                     | NodeJs Image tag                    | `lts-alpine`                          |
+| `deployment.env`                                | Environment variables               | `[{PORT: 80, NODE_ENV: "production"}` |
+| `deployment.imagePullSecrets`                   | Specify Image pull secrets          | `[]`                                  |
+| `deployment.livenessProbe.initialDelaySeconds`  | Delay before first liveness         | `5`                                   |
+| `deployment.livenessProbe.periodSeconds`        | Liveness period                     | `5`                                   |
+| `deployment.readinessProbe.initialDelaySeconds` | Delay before first readiness        | `5`                                   |
+| `deployment.readinessProbe.periodSeconds`       | Readiness period                    | `5`                                   |
+| `deployment.replicaCount`                       | replica count                       | `1`                                   |
+| `deployment.resources`                          | CPU/Memory resource requests/limits | Memory: `16-32Mi`, CPU: `5-50m`       |
+| `ingress.annotations`                           | Annotations for the Ingress         | `{}`                                  |
+| `ingress.enabled`                               | Enable ingress                      | `false`                               |
+| `ingress.hosts`                                 | Hosts for the Ingress               | `[]`                                  |
+| `ingress.tls`                                   | Tls for the Ingress                 | `[]`                                  |
+| `service.port`                                  | NodeJs port                         | `ClusterIP`                           |
+| `service.type`                                  | Kubernetes Service type             | `ClusterIP`                           |
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install` or `helm update`.

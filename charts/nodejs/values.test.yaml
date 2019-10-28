@@ -4,19 +4,12 @@ image:
   repository: djfarrelly/maildev
   tag: 1.1.0
 
-resources:
-  limits:
-    cpu: 50m
-    memory: 32Mi
-  requests:
-    cpu: 5m
-    memory: 16Mi
-
-env:
-  - name: PORT
-    value: "80"
-  - name: NODE_ENV
-    value: "test"
+deployment:
+  env:
+    - name: PORT
+      value: "80"
+    - name: NODE_ENV
+      value: "test"
 
 ingress:
   enabled: true
