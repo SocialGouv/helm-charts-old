@@ -1,3 +1,10 @@
+## [2.4.2](https://github.com/SocialGouv/helm-charts/compare/v2.4.1...v2.4.2) (2019-10-28)
+
+
+### Bug Fixes
+
+* **nodejs:** use longer periods by default ([369f940](https://github.com/SocialGouv/helm-charts/commit/369f94007ab7c48a008f9106326e063dfb745b37))
+
 ## [2.4.1](https://github.com/SocialGouv/helm-charts/compare/v2.4.0...v2.4.1) (2019-10-28)
 
 
