@@ -1,0 +1,23 @@
+#
+
+Test socialgouv/nodejs:
+  stage: "Code Quality"
+  environment:
+    name: fabrique-dev
+  only:
+    changes:
+      - charts/nodejs/**/*
+  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:0.8.1
+  script:
+    - kubectl config set-context --current --namespace=default
+    - helm delete --purge helm-chart-nodejs-${CI_JOB_ID} || true
+    - helm upgrade
+        helm-chart-nodejs-${CI_JOB_ID}
+        ./charts/nodejs
+        --debug
+        --install
+        --values ./charts/nodejs/values.test.yaml
+        --wait
+    - helm test helm-chart-nodejs-${CI_JOB_ID} --cleanup --debug
+  after_script:
+    - helm delete --purge helm-chart-nodejs-${CI_JOB_ID} || true
