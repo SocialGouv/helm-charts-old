@@ -11,9 +11,9 @@ spec:
     - name: wget-the-service
       image: busybox
       command:
-        - 'wget'
+        - wget
       args:
-        - '{{ include "nodejs.fullname" . }}:{{ .Values.service.port }}'
+        - {{ include "nodejs.fullname" . }}:{{ .Values.service.port }}
       resources:
         limits:
           cpu: 50m
@@ -21,13 +21,14 @@ spec:
         requests:
           cpu: 5m
           memory: 16Mi
+
     - name: wget-ingress
-      image: busybox
+      image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/curl:0.9.1
       command:
-        - 'curl'
+        - curl
       args:
         -  -k
-        - 'https://api.2b0c345.emjpm.dev.fabrique.social.gouv.fr/'
+        - test.nodejs.chart.dev.fabrique.social.gouv.fr/email
       resources:
         limits:
           cpu: 50m
