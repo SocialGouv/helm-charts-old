@@ -14,10 +14,10 @@ deployment:
 
   livenessProbe:
     initialDelaySeconds: 5
-    periodSeconds: 5
+    periodSeconds: 10
   readinessProbe:
     initialDelaySeconds: 5
-    periodSeconds: 5
+    periodSeconds: 10
 
   resources:
     limits:
