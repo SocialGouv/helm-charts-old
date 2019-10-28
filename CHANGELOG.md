@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/SocialGouv/helm-charts/compare/v2.4.0...v2.4.1) (2019-10-28)
+
+
+### Bug Fixes
+
+* **nodejs:** change period ([c1c3964](https://github.com/SocialGouv/helm-charts/commit/c1c3964361602d20a66c1fa0f2a10492d121cc36))
+
 # [2.4.0](https://github.com/SocialGouv/helm-charts/compare/v2.3.0...v2.4.0) (2019-10-28)
 
 
