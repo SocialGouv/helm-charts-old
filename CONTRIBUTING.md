@@ -8,14 +8,38 @@ You need [Helm](https://helm.sh) to contribute. You can install it locally or us
 alias helm="docker run -ti --rm -v $(pwd):/apps -v ~/.kube:/root/.kube -v ~/.helm:/root/.helm --user $(id -u):$(id -g) alpine/helm"
 ```
 
-### Create a new chart
+## Create a new chart
+
+1. Create a chart from the official boilerplate
 
 ```bash
 $ helm create charts/<chart_name>
 ```
 
-Ensure to add a documentation right from the start with a `README.md`.  
-You can follow the [`certificate/README.md` as model](./charts/certificate/README.md).
+1. Add a `README.md`  
+   Ensure to add a documentation right from the start with a `README.md`.  
+   You can follow the [`certificate/README.md` as model](./charts/certificate/README.md).
+
+1. Add your chart to the table in the [root `README.md`](./README.md).  
+   Keep alpha sorted plz ;)
+
+1. Add a `.gitlab-ci.yml` to specify the chart tests  
+   Ensure to add a test right from the start with in a local `.gitlab-ci.yml`.  
+   You can follow the [`certificate/.gitlab-ci.yml` as model](./charts/certificate/.gitlab-ci.yml).
+
+1. Edit the local `Chart.yaml`  
+   I recommend that you pick an images from wikimedia ;)  
+   Ensure that the version in the local `Chart.yaml` is the same as the other.  
+   You can follow the [`certificate/Chart.yaml` as model](./charts/certificate/.gitlab-ci.yml).
+
+## Tips
+
+```sh
+$ export CHART=nodejs
+$ export RELEASE_NAME=helm-charts-$CHART-local
+# To purge and re-run your test
+$ helm delete --purge $RELEASE_NAME ; helm upgrade $RELEASE_NAME ./charts/$CHART --debug --install --values ./charts/$CHART/values.test.yaml --wait && helm test $RELEASE_NAME --cleanup || helm test $RELEASE_NAME
+```
 
 ## Release policy
 
