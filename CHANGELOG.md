@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/SocialGouv/helm-charts/compare/v2.3.0...v2.4.0) (2019-10-28)
+
+
+### Features
+
+* **nodejs:** add liveness and readiness values ([9adcd59](https://github.com/SocialGouv/helm-charts/commit/9adcd592dba388731de7b3bbbf51d88c895bb01c))
+
 # [2.3.0](https://github.com/SocialGouv/helm-charts/compare/v2.2.0...v2.3.0) (2019-10-28)
 
 
