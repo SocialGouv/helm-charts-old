@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/SocialGouv/helm-charts/compare/v2.2.0...v2.3.0) (2019-10-28)
+
+
+### Features
+
+* **nodejs:** add nodejs charts ([8320df8](https://github.com/SocialGouv/helm-charts/commit/8320df839b0a1f37fc0067c95ee3a374d05a881a))
+
 # [2.2.0](https://github.com/SocialGouv/helm-charts/compare/v2.1.0...v2.2.0) (2019-10-24)
 
 
