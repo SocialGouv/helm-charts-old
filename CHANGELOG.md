@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/SocialGouv/helm-charts/compare/v2.4.2...v2.5.0) (2019-10-29)
+
+
+### Features
+
+* **nodejs:** add path variable for liveness and readiness ([0464d87](https://github.com/SocialGouv/helm-charts/commit/0464d87d198790a758255af817be53ec73728ea6))
+
 ## [2.4.2](https://github.com/SocialGouv/helm-charts/compare/v2.4.1...v2.4.2) (2019-10-28)
 
 
