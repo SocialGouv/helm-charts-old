@@ -53,8 +53,10 @@ The following table lists the configurable parameters of the chart and their def
 | `deployment.env`                                | Environment variables               | `[{PORT: 80, NODE_ENV: "production"}` |
 | `deployment.imagePullSecrets`                   | Specify Image pull secrets          | `[]`                                  |
 | `deployment.livenessProbe.initialDelaySeconds`  | Delay before first liveness         | `5`                                   |
+| `deployment.livenessProbe.path`                 | Path for the liveness               | `/`                                   |
 | `deployment.livenessProbe.periodSeconds`        | Liveness period                     | `5`                                   |
 | `deployment.readinessProbe.initialDelaySeconds` | Delay before first readiness        | `5`                                   |
+| `deployment.readinessProbe.path`                | Path for the readiness              | `/`                                   |
 | `deployment.readinessProbe.periodSeconds`       | Readiness period                    | `5`                                   |
 | `deployment.replicaCount`                       | replica count                       | `1`                                   |
 | `deployment.resources`                          | CPU/Memory resource requests/limits | Memory: `16-32Mi`, CPU: `5-50m`       |

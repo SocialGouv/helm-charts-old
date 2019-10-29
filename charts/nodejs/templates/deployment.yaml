@@ -18,7 +18,7 @@ spec:
     spec:
     {{- with .Values.deployment.imagePullSecrets }}
       imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
+        {{- toYaml . | indent 8 }}
     {{- end }}
       containers:
         - name: {{ .Chart.Name }}
@@ -30,13 +30,13 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /
+              path: {{ .Values.deployment.livenessProbe.path }}
               port: http
             initialDelaySeconds: {{ .Values.deployment.livenessProbe.initialDelaySeconds }}
             periodSeconds: {{ .Values.deployment.livenessProbe.periodSeconds }}
           readinessProbe:
             httpGet:
-              path: /
+              path: {{ .Values.deployment.readinessProbe.path }}
               port: http
             initialDelaySeconds: {{ .Values.deployment.readinessProbe.initialDelaySeconds }}
             periodSeconds: {{ .Values.deployment.readinessProbe.periodSeconds }}

@@ -14,9 +14,11 @@ deployment:
 
   livenessProbe:
     initialDelaySeconds: 5
+    path: /
     periodSeconds: 10
   readinessProbe:
     initialDelaySeconds: 5
+    path: /
     periodSeconds: 10
 
   resources:
