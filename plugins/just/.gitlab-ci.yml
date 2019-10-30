@@ -1,0 +1,28 @@
+#
+
+Test Just Plugin:
+  stage: "Code Quality"
+  environment:
+    name: fabrique-dev
+  only:
+    changes:
+      - plugins/just/**/*
+  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:0.11.1
+  script:
+    - sudo apk add --update shellcheck
+    - shellcheck ./plugins/just/just.sh
+    #
+    - helm init --client-only
+    - helm plugin install ./plugins/just
+    #
+    - helm repo add socialgouv https://github.com/SocialGouv/helm-charts/releases/download/v2.4.1
+    #
+    - helm just fetch "socialgouv/nodejs#2.4.1"
+    - helm just render my-server nodejs
+    #
+    - kubectl config set-context --current --namespace=default
+    - helm just apply my-server
+    - helm just delete my-server
+  after_script:
+    - kubectl delete deploy/my-server-nodejs || true
+    - kubectl delete srv/my-server-nodejs || true

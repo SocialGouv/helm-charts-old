@@ -1,6 +1,7 @@
 include:
   - /charts/certificate/.gitlab-ci.yml
   - /charts/nodejs/.gitlab-ci.yml
+  - /plugins/just/.gitlab-ci.yml
 #
 
 stages:
@@ -9,7 +10,7 @@ stages:
 
 Lint:
   stage: "Code Quality"
-  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:0.8.1
+  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:0.10.0
   script:
     - helm lint charts/*
 

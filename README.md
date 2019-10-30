@@ -31,6 +31,12 @@ $ helm install socialgouv/<chart> --version <version>
 | **nodejs**      | [`socialgouv/nodejs`](./charts/nodejs)           | [![README](https://img.shields.io/badge/README--green.svg)](./charts/nodejs/README.md)      |
 | **webapp**      | [`socialgouv/webapp`](./charts/webapp)           | [![README](https://img.shields.io/badge/README--green.svg)](./charts/webapp/README.md)      |
 
+## Helm plugins
+
+| Project         | Chart                                            | Links                                                                                       |
+| --------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------- |
+| **just** | [`socialgouv/just`](./plugins/just) | [![README](https://img.shields.io/badge/README--green.svg)](./plugins/just/README.md) |
+
 <br>
 <br>
 <br>
