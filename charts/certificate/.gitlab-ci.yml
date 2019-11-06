@@ -7,7 +7,7 @@ Test socialgouv/certificate:
   only:
     changes:
       - charts/certificate/**/*
-  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:0.8.1
+  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:0.10.0
   script:
     - kubectl config set-context --current --namespace=default
     - helm delete --purge helm-chart-certificate-${CI_JOB_ID} || true

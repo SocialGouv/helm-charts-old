@@ -23,7 +23,7 @@ spec:
           memory: 16Mi
 
     - name: wget-ingress
-      image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/curl:0.9.1
+      image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/curl:0.10.0
       command:
         - curl
       args:

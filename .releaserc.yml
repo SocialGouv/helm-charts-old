@@ -3,8 +3,10 @@ plugins:
   - - "@semantic-release/exec"
     - prepareCmd: "
         sed -i -e 's/version: .*/version: ${nextRelease.version}/g' charts/*/Chart.yaml &&
+        sed -i -e 's/version: .*/version: ${nextRelease.version}/g' plugins/*/plugin.yaml &&
         mkdir -p dist &&
         helm package charts/* --destination dist/ &&
+        tar -czvf dist/helm-just-linux-${nextRelease.version}.tgz plugins/just &&
         helm repo index ./dist
           --merge index.yaml
           --url $RELEASE_URL/${nextRelease.gitTag} &&

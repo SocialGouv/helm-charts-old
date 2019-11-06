@@ -1,0 +1,8 @@
+name: "just"
+version: 2.5.0
+usage: Just fetch and render a helm template
+description: |-
+  Just fetch and render a helm template
+command: "$HELM_HOME/plugins/just/just.sh"
+ignoreFlags: false
+useTunnel: false

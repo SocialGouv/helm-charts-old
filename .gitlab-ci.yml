@@ -1,6 +1,7 @@
 include:
   - /charts/certificate/.gitlab-ci.yml
   - /charts/nodejs/.gitlab-ci.yml
+  - /plugins/just/.gitlab-ci.yml
 #
 
 stages:
