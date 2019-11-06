@@ -5,7 +5,7 @@
 ## TL;DR
 
 ```sh
-$ curl -L https://github.com/SocialGouv/helm-charts/releases/download/v2.6.0/helm-just-linux-2.6.0.tgz | tar -C $(helm home)/plugins -xzv
+$ curl -L https://github.com/SocialGouv/helm-charts/releases/download/v2.6.0/helm-just-linux-2.6.0.tgz | tar -C $(helm home) -xzv
 $ helm repo add socialgouv https://github.com/SocialGouv/helm-charts/releases/download/v2.6.0
 $ helm just fetch "socialgouv/nodejs#2.6.0"
 $ helm just render my-server nodejs
