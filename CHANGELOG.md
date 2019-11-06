@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/SocialGouv/helm-charts/compare/v2.5.0...v2.6.0) (2019-11-06)
+
+
+### Features
+
+* **just:** add just plugin ([#14](https://github.com/SocialGouv/helm-charts/issues/14)) ([f1dd4ed](https://github.com/SocialGouv/helm-charts/commit/f1dd4ed420be7628fc2f172d300ce6bd5f177a18))
+
 # [2.5.0](https://github.com/SocialGouv/helm-charts/compare/v2.4.2...v2.5.0) (2019-10-29)
 
 
