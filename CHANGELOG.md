@@ -1,3 +1,10 @@
+# [2.7.0](https://github.com/SocialGouv/helm-charts/compare/v2.6.0...v2.7.0) (2019-11-18)
+
+
+### Features
+
+* **nodejs:** add deployment.port variable ([#17](https://github.com/SocialGouv/helm-charts/issues/17)) ([d031006](https://github.com/SocialGouv/helm-charts/commit/d031006008cf2a005e723a4aaa2764a8a12bbe68))
+
 # [2.6.0](https://github.com/SocialGouv/helm-charts/compare/v2.5.0...v2.6.0) (2019-11-06)
 
 
