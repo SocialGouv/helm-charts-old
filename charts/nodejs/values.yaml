@@ -9,8 +9,11 @@ image:
   pullPolicy: IfNotPresent
 
 deployment:
+
   replicaCount: 1
   imagePullSecrets: []
+
+  port: 80
 
   livenessProbe:
     initialDelaySeconds: 5
