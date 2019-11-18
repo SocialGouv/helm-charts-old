@@ -55,6 +55,7 @@ The following table lists the configurable parameters of the chart and their def
 | `deployment.livenessProbe.initialDelaySeconds`  | Delay before first liveness         | `5`                                   |
 | `deployment.livenessProbe.path`                 | Path for the liveness               | `/`                                   |
 | `deployment.livenessProbe.periodSeconds`        | Liveness period                     | `5`                                   |
+| `deployment.port`                               | Container port                      | `80`                                  |
 | `deployment.readinessProbe.initialDelaySeconds` | Delay before first readiness        | `5`                                   |
 | `deployment.readinessProbe.path`                | Path for the readiness              | `/`                                   |
 | `deployment.readinessProbe.periodSeconds`       | Readiness period                    | `5`                                   |
