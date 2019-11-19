@@ -10,6 +10,8 @@ image:
 
 deployment:
 
+  annotations: {}
+
   replicaCount: 1
   imagePullSecrets: []
 
