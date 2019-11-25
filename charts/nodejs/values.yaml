@@ -46,6 +46,8 @@ deployment:
 
   affinity: {}
 
+  initContainers: []
+
 ingress:
   enabled: false
   annotations: {}
