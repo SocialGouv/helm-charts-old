@@ -1,3 +1,11 @@
+# [2.8.0](https://github.com/SocialGouv/helm-charts/compare/v2.7.0...v2.8.0) (2019-11-25)
+
+
+### Features
+
+* **nodejs:** add deployment.annotations variable ([#18](https://github.com/SocialGouv/helm-charts/issues/18)) ([9ef532c](https://github.com/SocialGouv/helm-charts/commit/9ef532cd75bd64c47b6cd41c65f76d553c8004f0))
+* **nodejs:** add deployment.initContainers variable ([#19](https://github.com/SocialGouv/helm-charts/issues/19)) ([57c61eb](https://github.com/SocialGouv/helm-charts/commit/57c61eb95b06f42e3d957e74ba13174266001008))
+
 # [2.7.0](https://github.com/SocialGouv/helm-charts/compare/v2.6.0...v2.7.0) (2019-11-18)
 
 
