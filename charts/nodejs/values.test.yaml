@@ -11,6 +11,15 @@ deployment:
     - name: NODE_ENV
       value: "test"
 
+  initContainers:
+    - name: test-initContainers
+      image: alpine:3.10
+      command:
+        - sh
+        - -c
+        - |
+          echo Ready;
+
 ingress:
   enabled: true
   annotations:
