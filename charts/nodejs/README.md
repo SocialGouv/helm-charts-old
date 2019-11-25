@@ -53,6 +53,7 @@ The following table lists the configurable parameters of the chart and their def
 | `deployment.annotations`                        | Annotations for the Deployment      | `{}`                                  |
 | `deployment.env`                                | Environment variables               | `[{PORT: 80, NODE_ENV: "production"}` |
 | `deployment.imagePullSecrets`                   | Specify Image pull secrets          | `[]`                                  |
+| `deployment.initContainers`                     | Init Containers                     | `[]`                                  |
 | `deployment.livenessProbe.initialDelaySeconds`  | Delay before first liveness         | `5`                                   |
 | `deployment.livenessProbe.path`                 | Path for the liveness               | `/`                                   |
 | `deployment.livenessProbe.periodSeconds`        | Liveness period                     | `5`                                   |
