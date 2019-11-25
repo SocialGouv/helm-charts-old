@@ -12,7 +12,7 @@ deployment:
       value: "test"
 
   initContainers:
-    - name: test-initContainers
+    - name: test-init-containers
       image: alpine:3.10
       command:
         - sh
