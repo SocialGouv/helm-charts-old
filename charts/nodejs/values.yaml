@@ -21,11 +21,14 @@ deployment:
     initialDelaySeconds: 5
     path: /
     periodSeconds: 10
+    failureThreshold: 10
+    timeoutSeconds: 10
   readinessProbe:
     initialDelaySeconds: 5
     path: /
     periodSeconds: 10
-
+    failureThreshold: 10
+    timeoutSeconds: 10
   resources:
     limits:
       cpu: 50m
