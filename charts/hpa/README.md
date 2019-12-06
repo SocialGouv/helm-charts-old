@@ -73,10 +73,11 @@ The following table lists the configurable parameters of the chart and their def
 | `ingress.tls`                                          | Tls for the Ingress                            | `[]`                                  |
 | `service.port`                                         | NodeJs port                                    | `ClusterIP`                           |
 | `service.type`                                         | Kubernetes Service type                        | `ClusterIP`                           |
-| `autoscaling.minReplicas`                              | Minimum pod replica count                      | null                                  |
-| `autoscaling.maxReplicas`                              | Maximum pod replica count                      | null                                  |
-| `autoscaling.targetCPUAverageUtilizationPercentage`    | Target CPU utilization percentage to scale     | null                                  |
-| `autoscaling.targetMemoryAverageUtilizationPercentage` | Target memory utilization percentage to scale  | null                                  |
+| `autoscaling.enabled`                                  | If true, creates Horizontal Pod Autoscaler     | `false`                               |
+| `autoscaling.minReplicas`                              | Minimum pod replica count                      | `null`                                |
+| `autoscaling.maxReplicas`                              | Maximum pod replica count                      | `null`                                |
+| `autoscaling.targetCPUAverageUtilizationPercentage`    | Target CPU utilization percentage to scale     | `null`                                |
+| `autoscaling.targetMemoryAverageUtilizationPercentage` | Target memory utilization percentage to scale  | `null`                                |
 
   
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install` or `helm update`.
