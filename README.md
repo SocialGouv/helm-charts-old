@@ -28,6 +28,7 @@ $ helm install socialgouv/<chart> --version <version>
 | Project         | Chart                                            | Links                                                                                       |
 | --------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------- |
 | **certificate** | [`socialgouv/certificate`](./charts/certificate) | [![README](https://img.shields.io/badge/README--green.svg)](./charts/certificate/README.md) |
+| **hpa**         | [`socialgouv/hpa`](./charts/hpa)                 | [![README](https://img.shields.io/badge/README--green.svg)](./charts/hpa/README.md)      |
 | **nodejs**      | [`socialgouv/nodejs`](./charts/nodejs)           | [![README](https://img.shields.io/badge/README--green.svg)](./charts/nodejs/README.md)      |
 | **webapp**      | [`socialgouv/webapp`](./charts/webapp)           | [![README](https://img.shields.io/badge/README--green.svg)](./charts/webapp/README.md)      |
 
