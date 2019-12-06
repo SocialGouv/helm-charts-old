@@ -1,3 +1,15 @@
+# [2.9.0](https://github.com/SocialGouv/helm-charts/compare/v2.8.0...v2.9.0) (2019-12-06)
+
+
+### Bug Fixes
+
+* allow override failureThreshold and timeoutSeconds ([#20](https://github.com/SocialGouv/helm-charts/issues/20)) ([eccff42](https://github.com/SocialGouv/helm-charts/commit/eccff42df7901c3af7f46a724deb058ee38977a5))
+
+
+### Features
+
+* add chart to use Horizontal Pod Autoscaler ([#22](https://github.com/SocialGouv/helm-charts/issues/22)) ([5050753](https://github.com/SocialGouv/helm-charts/commit/5050753716e1e367b4db0732de81af7f2baa4675))
+
 # [2.8.0](https://github.com/SocialGouv/helm-charts/compare/v2.7.0...v2.8.0) (2019-11-25)
 
 
