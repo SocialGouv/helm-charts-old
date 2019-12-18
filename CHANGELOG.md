@@ -1,3 +1,10 @@
+# [2.10.0](https://github.com/SocialGouv/helm-charts/compare/v2.9.0...v2.10.0) (2019-12-18)
+
+
+### Features
+
+* variabilize port for Probe in hpa charts + update memory limits ([#26](https://github.com/SocialGouv/helm-charts/issues/26)) ([deaadbd](https://github.com/SocialGouv/helm-charts/commit/deaadbdec769147892402cdbc6cf024f05d964c9))
+
 # [2.9.0](https://github.com/SocialGouv/helm-charts/compare/v2.8.0...v2.9.0) (2019-12-06)
 
 
