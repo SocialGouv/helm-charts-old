@@ -20,19 +20,21 @@ deployment:
   livenessProbe:
     initialDelaySeconds: 5
     path: /
+    port: http
     periodSeconds: 10
     failureThreshold: 10
     timeoutSeconds: 10
   readinessProbe:
     initialDelaySeconds: 5
     path: /
+    port: http
     periodSeconds: 10
     failureThreshold: 10
     timeoutSeconds: 10
   resources:
     limits:
       cpu: 50m
-      memory: 32Mi
+      memory: 64Mi
     requests:
       cpu: 5m
       memory: 16Mi
