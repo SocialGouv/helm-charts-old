@@ -1,3 +1,10 @@
+# [2.11.0](https://github.com/SocialGouv/helm-charts/compare/v2.10.0...v2.11.0) (2019-12-19)
+
+
+### Features
+
+* add variable for service targetPort ([#27](https://github.com/SocialGouv/helm-charts/issues/27)) ([e12538a](https://github.com/SocialGouv/helm-charts/commit/e12538ac4d9aebea1aa357c793a933d2666cd653))
+
 # [2.10.0](https://github.com/SocialGouv/helm-charts/compare/v2.9.0...v2.10.0) (2019-12-18)
 
 
