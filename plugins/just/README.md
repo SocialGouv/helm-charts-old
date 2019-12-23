@@ -75,7 +75,7 @@ $ helm just apply my-server
 #
 # Any extra arguments will be passed to `helm apply`
 # see `helm apply --help`
-$ helm just apply my-server --debug
+$ helm just apply my-release --debug
 ```
 
 ### `helm just delete <release_name>`
@@ -84,11 +84,11 @@ $ helm just apply my-server --debug
 > By default, rendered charts are stored in you local `.manifests` folder
 
 ```sh
-$ helm just delete my-server
+$ helm just delete my-release
 #
 # Any extra arguments will be passed to `helm delete`
 # see `helm delete --help`
-$ helm just delete my-server --debug
+$ helm just delete my-release --debug
 ```
 
 ## Options
