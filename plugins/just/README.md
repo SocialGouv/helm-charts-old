@@ -71,7 +71,7 @@ $ helm just render "socialgouv/nodejs#2.8.0" --set image.tag="12-alpine"
 > By default, rendered charts are stored in you local `.manifests` folder
 
 ```sh
-$ helm just apply my-server
+$ helm just apply my-release
 #
 # Any extra arguments will be passed to `helm apply`
 # see `helm apply --help`
