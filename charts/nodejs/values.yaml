@@ -8,9 +8,16 @@ image:
   tag: lts-alpine
   pullPolicy: IfNotPresent
 
+# Global labels
+labels: {}
+  # owner: default # where the project is in the cluster
+  # team: helm-charts # the github "team" or repo name
+
 deployment:
 
   annotations: {}
+  # app.gitlab.com/app: ${CI_PROJECT_PATH_SLUG}
+  # app.gitlab.com/env: ${CI_ENVIRONMENT_SLUG}
 
   replicaCount: 1
   imagePullSecrets: []

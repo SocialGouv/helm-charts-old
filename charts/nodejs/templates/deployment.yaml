@@ -17,8 +17,7 @@ spec:
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ include "nodejs.name" . }}
-        app.kubernetes.io/instance: {{ .Release.Name }}
+{{ include "nodejs.labels" . | indent 8 }}
     spec:
       {{- with .Values.deployment.imagePullSecrets }}
       imagePullSecrets:
@@ -51,7 +50,7 @@ spec:
           resources:
             {{- toYaml .Values.deployment.resources | nindent 12 }}
           env:
-            {{- toYaml .Values.deployment.env | nindent 12}}
+            {{- toYaml .Values.deployment.env | nindent 12 }}
       {{- with .Values.deployment.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
