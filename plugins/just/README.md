@@ -58,7 +58,7 @@ $ helm just fetch "socialgouv/nodejs#2.8.0" --debug
 > By default, cached chart are stored in you local `.chart` folder and rendered in you local `.manifests` folder
 
 ```sh
-$ helm just render my-server nodejs
+$ helm just render my-release nodejs
 #
 # Any extra arguments will be passed to `helm render`
 # see `helm render --help`
