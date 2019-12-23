@@ -1,3 +1,11 @@
+# [2.12.0](https://github.com/SocialGouv/helm-charts/compare/v2.11.0...v2.12.0) (2019-12-23)
+
+
+### Features
+
+* **just:** add directory change options ([#29](https://github.com/SocialGouv/helm-charts/issues/29)) ([98cfaee](https://github.com/SocialGouv/helm-charts/commit/98cfaee5e01bf1c2e94ecc38ef04f5eeadfe4fbc))
+* **nodejs:** add labels variable ([#30](https://github.com/SocialGouv/helm-charts/issues/30)) ([bdb43aa](https://github.com/SocialGouv/helm-charts/commit/bdb43aab26459f65a78e249ed999fb7c4c253c9a))
+
 # [2.11.0](https://github.com/SocialGouv/helm-charts/compare/v2.10.0...v2.11.0) (2019-12-19)
 
 

@@ -3,6 +3,25 @@ entries:
   certificate:
   - apiVersion: v1
     appVersion: "1"
+    created: "2019-12-23T19:51:37.412808498Z"
+    description: Social Gouv certificate Helm chart for Kubernetes
+    digest: 1677ba9fa7013905e00e24c049ecd3a43d3137b2d28a3f33f60e2db62900a27e
+    home: https://github.com/SocialGouv/helm-charts/tree/master/charts/certificate
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Client_and_Server_Certificate.png/350px-Client_and_Server_Certificate.png
+    keywords:
+    - certificate
+    - letsencrypt
+    maintainers:
+    - email: dsi-incubateur@sg.social.gouv.fr
+      name: Incubateur des Ministères Sociaux
+    name: certificate
+    sources:
+    - https://github.com/SocialGouv/helm-charts/tree/master/charts/certificate
+    urls:
+    - https://github.com/SocialGouv/helm-charts/releases/download/v2.12.0/certificate-2.12.0.tgz
+    version: 2.12.0
+  - apiVersion: v1
+    appVersion: "1"
     created: "2019-12-19T15:13:09.972565592Z"
     description: Social Gouv certificate Helm chart for Kubernetes
     digest: a797af67c87f07c887bdf5c788eba2df4854d79ef1d3f5b474001ae0dda7ef32
@@ -232,6 +251,25 @@ entries:
   hpa:
   - apiVersion: v1
     appVersion: "1"
+    created: "2019-12-23T19:51:37.413469617Z"
+    description: Social Gouv Horizontal Pod Autoscaler Helm chart for Kubernetes
+    digest: a7a7c929d8af02cb7ac4ac076fd2f923574f3bd18f5c3af8eafa37d32320c88a
+    home: https://github.com/SocialGouv/helm-charts/tree/master/charts/hpa
+    icon: https://github.com/kubernetes/community/raw/master/icons/png/resources/labeled/hpa-128.png
+    keywords:
+    - hpa
+    - Horizontal Pod Autoscaler
+    maintainers:
+    - email: dsi-incubateur@sg.social.gouv.fr
+      name: Incubateur des Ministères Sociaux
+    name: hpa
+    sources:
+    - https://github.com/SocialGouv/helm-charts/tree/master/charts/hpa
+    urls:
+    - https://github.com/SocialGouv/helm-charts/releases/download/v2.12.0/hpa-2.12.0.tgz
+    version: 2.12.0
+  - apiVersion: v1
+    appVersion: "1"
     created: "2019-12-19T15:13:09.973175691Z"
     description: Social Gouv Horizontal Pod Autoscaler Helm chart for Kubernetes
     digest: 574c3f887994aeedbe0ce2f14127ca60071ba84386126bb592cb4f93cdd59348
@@ -288,6 +326,24 @@ entries:
     - https://github.com/SocialGouv/helm-charts/releases/download/v2.9.0/hpa-2.9.0.tgz
     version: 2.9.0
   nodejs:
+  - apiVersion: v1
+    appVersion: "1"
+    created: "2019-12-23T19:51:37.413900349Z"
+    description: Social Gouv NodeJS Helm chart for Kubernetes
+    digest: a2ebb1ed3d0a7f8b74d6ef00406ceb96ec6a18b67bbcab2cf69b89dedd5d9a87
+    home: https://github.com/SocialGouv/helm-charts/tree/master/charts/nodejs
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/200px-Node.js_logo.svg.png
+    keywords:
+    - nodejs
+    maintainers:
+    - email: dsi-incubateur@sg.social.gouv.fr
+      name: Incubateur des Ministères Sociaux
+    name: nodejs
+    sources:
+    - https://github.com/SocialGouv/helm-charts/tree/master/charts/nodejs
+    urls:
+    - https://github.com/SocialGouv/helm-charts/releases/download/v2.12.0/nodejs-2.12.0.tgz
+    version: 2.12.0
   - apiVersion: v1
     appVersion: "1"
     created: "2019-12-19T15:13:09.97360409Z"
@@ -487,6 +543,25 @@ entries:
     - https://github.com/SocialGouv/helm-charts/releases/download/v2.3.0/nodejs-2.3.0.tgz
     version: 2.3.0
   webapp:
+  - apiVersion: v1
+    appVersion: "1"
+    created: "2019-12-23T19:51:37.414332929Z"
+    description: Social Gouv Webapp Helm chart for Kubernetes
+    digest: 83f0ec2c0e60dec44e8875db16d44628a61a484798e3986807e70c942326bac5
+    home: https://github.com/SocialGouv/helm-charts/tree/master/charts/webapp
+    icon: https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg
+    keywords:
+    - ingress
+    - nginx
+    maintainers:
+    - email: dsi-incubateur@sg.social.gouv.fr
+      name: Incubateur des Ministères Sociaux
+    name: webapp
+    sources:
+    - https://github.com/SocialGouv/helm-charts/tree/master/charts/webapp
+    urls:
+    - https://github.com/SocialGouv/helm-charts/releases/download/v2.12.0/webapp-2.12.0.tgz
+    version: 2.12.0
   - apiVersion: v1
     appVersion: "1"
     created: "2019-12-19T15:13:09.973924989Z"
@@ -837,4 +912,4 @@ entries:
     urls:
     - https://github.com/SocialGouv/helm-charts/releases/download/v0.1.0/webapp-0.1.0.tgz
     version: 0.1.0
-generated: "2019-12-19T15:13:09.971868894Z"
+generated: "2019-12-23T19:51:37.412129177Z"
