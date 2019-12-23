@@ -2,9 +2,9 @@
 
 set -eu
 
-charts_directory='.charts'
-manifests_directory='.manifests'
-temp_directory='.tmp'
+charts_directory=${JUST_CHARTS_DIRECTORY:='.charts'}
+manifests_directory=${JUST_MANIFESTS_DIRECTORY:='.manifests'}
+temp_directory=${JUST_TEMP_DIRECTORY:='.tmp'}
 
 chart_name_delimiter='/'
 version_delimiter='#'
