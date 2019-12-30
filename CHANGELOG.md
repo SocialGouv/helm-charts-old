@@ -1,3 +1,10 @@
+# [2.13.0](https://github.com/SocialGouv/helm-charts/compare/v2.12.0...v2.13.0) (2019-12-30)
+
+
+### Features
+
+* **nodejs:** add annotations to deploy pod too ([#32](https://github.com/SocialGouv/helm-charts/issues/32)) ([69c4864](https://github.com/SocialGouv/helm-charts/commit/69c48641cd1fab9be1011bcdb2589a5099a5ef4b))
+
 # [2.12.0](https://github.com/SocialGouv/helm-charts/compare/v2.11.0...v2.12.0) (2019-12-23)
 
 
