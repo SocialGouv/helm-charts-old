@@ -1,3 +1,10 @@
+# [2.14.0](https://github.com/SocialGouv/helm-charts/compare/v2.13.0...v2.14.0) (2020-01-09)
+
+
+### Features
+
+* set variable for backend.servicePort in ingress template ([#34](https://github.com/SocialGouv/helm-charts/issues/34)) ([d3929bd](https://github.com/SocialGouv/helm-charts/commit/d3929bd99f99f015e0f9e68220c8e0202b43f6eb))
+
 # [2.13.0](https://github.com/SocialGouv/helm-charts/compare/v2.12.0...v2.13.0) (2019-12-30)
 
 
