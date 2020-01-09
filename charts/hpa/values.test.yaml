@@ -40,7 +40,8 @@ ingress:
   hosts:
     - host: test.hpa.chart.dev.fabrique.social.gouv.fr
       paths:
-        - /
+        - path: /
+          servicePort: 4000
   tls:
     - hosts:
         - test.hpa.chart.dev.fabrique.social.gouv.fr
