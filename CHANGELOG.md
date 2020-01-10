@@ -76,8 +76,9 @@ ingress:
           servicePort: 8080
 ```
 
-# [2.14.0](https://github.com/SocialGouv/helm-charts/compare/v2.13.0...v2.14.0) (2020-01-09)
+# ~~[2.14.0](https://github.com/SocialGouv/helm-charts/compare/v2.13.0...v2.14.0) (2020-01-09)~~
 
+**DEPRECATED** : Contains breaking changes
 
 ### Features
 
