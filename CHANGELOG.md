@@ -1,3 +1,81 @@
+# [3.0.0](https://github.com/SocialGouv/helm-charts/compare/v2.14.0...v3.0.0) (2020-01-10)
+
+
+* feat(nodejs)!: set variable for backend.servicePort in ingress template ([9fa47cc](https://github.com/SocialGouv/helm-charts/commit/9fa47cc663966ce6a5c0de6e7bb3ab13d1dd2204))
+* feat(hpa)!: set variable for backend.servicePort in ingress template ([8452729](https://github.com/SocialGouv/helm-charts/commit/84527297d3ac15972377bdd758dc0ac07d36e434))
+
+
+### BREAKING CHANGES
+
+* set variable for backend.servicePort in ingress template
+
+In the value file, the `ingress.hosts[].paths` accepts an array of object
+
+Before
+
+```yaml
+ingress:
+  hosts:
+    - host: test.dev.fabrique.social.gouv.fr
+      paths:
+        - /
+```
+
+After
+
+```yaml
+ingress:
+  hosts:
+    - host: test.dev.fabrique.social.gouv.fr
+      paths:
+        - path: /
+```
+
+The `servicePort`, default to `80`, can be overridden there
+
+```yaml
+ingress:
+  hosts:
+    - host: test.dev.fabrique.social.gouv.fr
+      paths:
+        - path: /
+          servicePort: 8080
+```
+* set variable for backend.servicePort in ingress template
+
+In the value file, the `ingress.hosts[].paths` accepts an array of object
+
+Before
+
+```yaml
+ingress:
+  hosts:
+    - host: test.dev.fabrique.social.gouv.fr
+      paths:
+        - /
+```
+
+After
+
+```yaml
+ingress:
+  hosts:
+    - host: test.dev.fabrique.social.gouv.fr
+      paths:
+        - path: /
+```
+
+The `servicePort`, default to `80`, can be overridden there
+
+```yaml
+ingress:
+  hosts:
+    - host: test.dev.fabrique.social.gouv.fr
+      paths:
+        - path: /
+          servicePort: 8080
+```
+
 # [2.14.0](https://github.com/SocialGouv/helm-charts/compare/v2.13.0...v2.14.0) (2020-01-09)
 
 
