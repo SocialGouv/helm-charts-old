@@ -72,8 +72,8 @@ ingress:
   hosts: []
     # - host: test.hpa.dev.fabrique.social.gouv.fr
     #   paths:
-    #     path: /
-    #     servicePort: 80
+    #     - path: /
+    #       servicePort: 80
   tls: []
     # - hosts:
     #     - test.hpa.dev.fabrique.social.gouv.fr
