@@ -68,8 +68,8 @@ ingress:
   hosts: []
     # - host: test.nodejs.dev.fabrique.social.gouv.fr
     #   paths:
-    #     path: /
-    #     servicePort: 80
+    #     - path: /
+    #       servicePort: 80
   tls: []
     # - hosts:
     #     - test.nodejs.dev.fabrique.social.gouv.fr
