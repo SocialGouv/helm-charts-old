@@ -21,6 +21,21 @@ deployment:
     - name: NODE_ENV
       value: "test"
 
+  livenessProbe:
+    initialDelaySeconds: 5
+    path: /
+    port: 80
+    periodSeconds: 3
+    failureThreshold: 3
+    timeoutSeconds: 5
+  readinessProbe:
+    initialDelaySeconds: 5
+    path: /
+    port: 80
+    periodSeconds: 3
+    failureThreshold: 3
+    timeoutSeconds: 5
+
   initContainers:
     - name: test-init-containers
       image: alpine:3.10
