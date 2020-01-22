@@ -27,15 +27,17 @@ deployment:
   livenessProbe:
     initialDelaySeconds: 5
     path: /
-    periodSeconds: 10
-    failureThreshold: 10
-    timeoutSeconds: 10
+    port: 80
+    periodSeconds: 3
+    failureThreshold: 3
+    timeoutSeconds: 5
   readinessProbe:
     initialDelaySeconds: 5
     path: /
-    periodSeconds: 10
-    failureThreshold: 10
-    timeoutSeconds: 10
+    port: 80
+    periodSeconds: 3
+    failureThreshold: 3
+    timeoutSeconds: 5
   resources:
     limits:
       cpu: 50m
