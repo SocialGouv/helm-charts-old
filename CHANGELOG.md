@@ -1,3 +1,11 @@
+## [3.0.1](https://github.com/SocialGouv/helm-charts/compare/v3.0.0...v3.0.1) (2020-01-22)
+
+
+### Bug Fixes
+
+* add missing probe port in examples values files ([#37](https://github.com/SocialGouv/helm-charts/issues/37)) ([eb2b4bf](https://github.com/SocialGouv/helm-charts/commit/eb2b4bfe8040f3a5f64de4bf7732e7d1d806d9f3))
+* fix healthcheck probes port (replace name by port) ([#36](https://github.com/SocialGouv/helm-charts/issues/36)) ([bcb4adc](https://github.com/SocialGouv/helm-charts/commit/bcb4adc804f3cd7934cbc42b0fddc97d4f45624a))
+
 # [3.0.0](https://github.com/SocialGouv/helm-charts/compare/v2.14.0...v3.0.0) (2020-01-10)
 
 
