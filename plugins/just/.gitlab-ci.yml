@@ -4,9 +4,6 @@ Test Just Plugin:
   stage: "Code Quality"
   environment:
     name: fabrique-dev
-  only:
-    changes:
-      - plugins/just/**/*
   image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:0.11.1
   script:
     - sudo apk add --update shellcheck
