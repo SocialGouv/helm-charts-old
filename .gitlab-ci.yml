@@ -36,6 +36,8 @@ Release:
     GIT_AUTHOR_NAME: Social Groovy Bot
     GIT_COMMITTER_EMAIL: $GIT_AUTHOR_EMAIL
     GIT_COMMITTER_NAME: $GIT_AUTHOR_NAME
+    # NOTE(douglasduteil): 4242 is a magic number :)
+    # I put 4242 here because we might have more then 42 commits between two release.
     GIT_DEPTH: 4242
     RELEASE_URL: https://github.com/${CI_PROJECT_PATH}/releases/download
   cache:
