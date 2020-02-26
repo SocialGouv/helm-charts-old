@@ -1,14 +1,17 @@
 #
 
-Test Just Plugin:
+Test Just Plugin 1 1:
+  stage: "Code Quality"
+  image: koalaman/shellcheck-alpine:v0.7.0
+  script:
+    - shellcheck ./plugins/just/just.sh
+
+Test Just Plugin 1 2:
   stage: "Code Quality"
   environment:
     name: fabrique-dev
   image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:0.11.1
   script:
-    - sudo apk add --update shellcheck
-    - shellcheck ./plugins/just/just.sh
-    #
     - helm init --client-only
     - helm plugin install ./plugins/just
     #
