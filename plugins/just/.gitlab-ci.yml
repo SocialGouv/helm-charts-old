@@ -18,11 +18,11 @@ Test Just Plugin 1 2:
     - helm repo add socialgouv https://github.com/SocialGouv/helm-charts/releases/download/v2.4.1
     #
     - helm just fetch "socialgouv/nodejs#2.4.1"
-    - helm just render my-server nodejs
+    - helm just render my-server-${CI_JOB_ID} nodejs
     #
     - kubectl config set-context --current --namespace=default
-    - helm just apply my-server
-    - helm just delete my-server
+    - helm just apply my-server-${CI_JOB_ID}
+    - helm just delete my-server-${CI_JOB_ID}
   after_script:
-    - kubectl delete deploy/my-server-nodejs || true
-    - kubectl delete srv/my-server-nodejs || true
+    - kubectl delete deploy/my-server-${CI_JOB_ID}-nodejs || true
+    - kubectl delete srv/my-server-${CI_JOB_ID}-nodejs || true
