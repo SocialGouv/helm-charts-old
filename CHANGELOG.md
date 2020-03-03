@@ -1,3 +1,13 @@
+# [4.0.0](https://github.com/SocialGouv/helm-charts/compare/v3.0.1...v4.0.0) (2020-03-03)
+
+
+* refactor(certificate)!: remove certificate chart (#43) ([2d487f5](https://github.com/SocialGouv/helm-charts/commit/2d487f5b0ceb516dd8307c692d8ee91b1143c569)), closes [#43](https://github.com/SocialGouv/helm-charts/issues/43) [#23](https://github.com/SocialGouv/helm-charts/issues/23)
+
+
+### BREAKING CHANGES
+
+* remove certificate chart
+
 ## [3.0.1](https://github.com/SocialGouv/helm-charts/compare/v3.0.0...v3.0.1) (2020-01-22)
 
 
