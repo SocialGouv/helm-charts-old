@@ -1,0 +1,6 @@
+{
+  "extends": ["github>SocialGouv/renovate-config"],
+  "gitlabci": {
+    "fileMatch": ["\\.gitlab-ci.yml$"]
+  }
+}
