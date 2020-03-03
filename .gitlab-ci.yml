@@ -17,7 +17,7 @@ stages:
 
 Lint:
   stage: "Code Quality"
-  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:0.23.0
+  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:0.24.0
   script:
     - helm lint charts/*
 
