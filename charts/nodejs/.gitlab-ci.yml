@@ -4,7 +4,7 @@ Test socialgouv/nodejs:
   stage: "Code Quality"
   environment:
     name: fabrique-dev
-  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:0.10.0
+  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:0.25.0
   script:
     - kubectl config set-context --current --namespace=default
     - helm delete --purge helm-chart-nodejs-${CI_JOB_ID} || true
