@@ -1,0 +1,36 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "managed-pg.fullname" . }}
+  labels:
+    app: create-db
+{{ include "managed-pg.labels" . | indent 4 }}
+  {{- with .Values.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  template:
+    metadata:
+      labels:
+{{ include "managed-pg.labels" . | indent 8 }}
+    spec:
+      containers:
+        - name:  {{ include "managed-pg.fullname" . }}
+          image: "{{ .Values.jobs.image.repository }}:{{ .Values.jobs.image.tag }}"
+          imagePullPolicy: {{ .Values.jobs.image.pullPolicy }}
+          command: ["sh"]
+          args: ["-x", "/bin/create-db"]
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            {{- toYaml .Values.jobs.env | nindent 12 }}
+            # create-db args
+            - name: NEW_DB_NAME
+              value: {{ .Values.createDb.name }}
+            - name: NEW_PASSWORD
+              value: {{ .Values.createDb.password }}
+            - name: NEW_USER
+              value: {{ .Values.createDb.user }}
+      restartPolicy: {{ .Values.jobs.restartPolicy }}

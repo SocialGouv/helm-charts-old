@@ -1,0 +1,27 @@
+#
+
+Test socialgouv/managed-pg:
+  stage: "Code Quality"
+  environment:
+    name: fabrique-dev
+  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:0.25.0
+  variables:
+    JUST_CHARTS_DIRECTORY: charts
+  script:
+    - kubectl config set-context --current --namespace=default
+    #
+    - helm init --client-only
+    - helm plugin install ./plugins/just
+    #
+    - helm just render helm-chart-managed-pg-test-${CI_JOB_ID} managed-pg
+      --set createDb.name=db_${CI_COMMIT_REF_SLUG}
+      --set createDb.password=pass_${CI_COMMIT_REF_SLUG}
+      --set createDb.user=user_${CI_COMMIT_REF_SLUG}
+    #
+    - helm just apply helm-chart-managed-pg-test-${CI_JOB_ID} -l app=create-db
+    - kubectl wait --for=condition=complete job/helm-chart-managed-pg-test-${CI_JOB_ID} --timeout=5s
+
+
+  after_script:
+    - kubectl config set-context --current --namespace=default
+    - helm just delete helm-chart-managed-pg-test-${CI_JOB_ID} || true

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "managed-pg.fullname" . }}-test-create-db"
+  labels:
+{{ include "managed-pg.labels" . | indent 4 }}
+  annotations:
+    "helm.sh/hook": test-success
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args:  ['{{ include "managed-pg.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
