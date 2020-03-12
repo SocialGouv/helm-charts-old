@@ -15,14 +15,19 @@ Test socialgouv/managed-pg:
     #
     - BRANCH_NAME_HASHED=$( printf "${CI_COMMIT_REF_SLUG}" | sha1sum | cut -c1-7 )
     - helm just render "helm-chart-managed-pg-test-${CI_JOB_ID}" managed-pg
-      --set createDb.name="db_${BRANCH_NAME_HASHED}"
-      --set createDb.password="pass_${BRANCH_NAME_HASHED}"
-      --set createDb.user="user_${BRANCH_NAME_HASHED}"
+      --set db.name="db_${BRANCH_NAME_HASHED}"
+      --set db.password="pass_${BRANCH_NAME_HASHED}"
+      --set db.user="user_${BRANCH_NAME_HASHED}"
     #
-    - helm just apply "helm-chart-managed-pg-test-${CI_JOB_ID}" -l app=create-db
-    - kubectl wait --for=condition=complete "job/helm-chart-managed-pg-test-${CI_JOB_ID}" --timeout=5s
-
+    - helm just apply "helm-chart-managed-pg-test-${CI_JOB_ID}" -l app=drop-db-user
+    - kubectl wait --for=condition=complete "job/helm-chart-managed-pg-test-${CI_JOB_ID}-drop-db-user" --timeout=2m
+    #
+    - helm just apply "helm-chart-managed-pg-test-${CI_JOB_ID}" -l app=create-db-user
+    - kubectl wait --for=condition=complete "job/helm-chart-managed-pg-test-${CI_JOB_ID}-create-db-user" --timeout=2m
+    #
+    - helm just apply "helm-chart-managed-pg-test-${CI_JOB_ID}" -l app=drop-db-user
+    - kubectl wait --for=condition=complete "job/helm-chart-managed-pg-test-${CI_JOB_ID}-drop-db-user" --timeout=2m
 
   after_script:
     - kubectl config set-context --current --namespace=helm-charts-test
-    # - helm just delete "helm-chart-managed-pg-test-${CI_JOB_ID}" || true
+    - helm just delete "helm-chart-managed-pg-test-${CI_JOB_ID}" || true

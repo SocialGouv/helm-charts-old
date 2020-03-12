@@ -34,7 +34,7 @@ jobs:
 
   restartPolicy: Never
 
-createDb:
+db:
   name: "new_db"
   password: "new_pass"
   user: "new_user"
