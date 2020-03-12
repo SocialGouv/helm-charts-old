@@ -106,7 +106,9 @@ test () {
     "$manifests_directory/$release_name/tests" \
     "$@"
 
-  kubectl get job --no-headers -o custom-columns=":metadata.name" -l $release_name | \
+  kubectl get job --no-headers \
+    -o custom-columns=":metadata.name" \
+    -l "app.kubernetes.io/instance=$release_name" | \
     xargs -I {} sh -xc "
   kubectl wait --for=condition=available job/{} --timeout=5s || true
   kubectl logs -f job/{}
