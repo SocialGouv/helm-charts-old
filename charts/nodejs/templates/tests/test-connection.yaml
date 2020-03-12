@@ -4,7 +4,6 @@ metadata:
   name: "{{ include "nodejs.fullname" . }}-test-connection"
   labels:
 {{ include "nodejs.labels" . | indent 4 }}
-  annotations:
     "just/test": test-success
 spec:
   containers:
