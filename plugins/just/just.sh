@@ -106,8 +106,7 @@ test () {
     "$manifests_directory/$release_name/tests" \
     "$@"
 
-  kubectl get job --no-headers -o custom-columns=":metadata.name" | \
-    grep "^test-" | \
+  kubectl get job --no-headers -o custom-columns=":metadata.name,:metadata.annotations['just/test']" | \
     xargs -I {} sh -c "
   kubectl wait --for=condition=available job/{} --timeout=5s || true
   kubectl logs -f job/{}

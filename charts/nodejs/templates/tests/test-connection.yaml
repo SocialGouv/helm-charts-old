@@ -5,7 +5,7 @@ metadata:
   labels:
 {{ include "nodejs.labels" . | indent 4 }}
   annotations:
-    "helm.sh/hook": test-success
+    "just/test": test-success
 spec:
   containers:
     - name: wget-the-service
