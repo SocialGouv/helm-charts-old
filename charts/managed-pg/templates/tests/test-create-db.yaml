@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: batch/v1
 kind: Job
 metadata:
   name: "test-{{ include "managed-pg.fullname" . }}-create-db"
@@ -15,7 +15,11 @@ spec:
         - name:  "test-if-db-exists"
           image: "postgres:11.5-alpine"
           imagePullPolicy: {{ .Values.jobs.image.pullPolicy }}
-          command: ["psql", "${NEW_DB_NAME}", "-qtA", "-c", "'\du'"]
+          command:
+            - sh
+          args:
+            - -c
+            - psql ${NEW_DB_NAME} -qtA -c '\\du'
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
