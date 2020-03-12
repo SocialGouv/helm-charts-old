@@ -20,7 +20,7 @@ spec:
         - name:  {{ include "managed-pg.fullname" . }}
           image: "{{ .Values.jobs.image.repository }}:{{ .Values.jobs.image.tag }}"
           imagePullPolicy: {{ .Values.jobs.image.pullPolicy }}
-          command: ["createdb"]
+          command: ["create-db-user"]
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
