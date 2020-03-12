@@ -33,7 +33,7 @@ Test socialgouv/managed-pg:
     - helm just apply "helm-chart-managed-pg-test-${CI_JOB_ID}" -l app=create-db-user
     - kubectl wait --for=condition=complete "job/helm-chart-managed-pg-test-${CI_JOB_ID}-create-db-user" --timeout=2m
     - helm just test "helm-chart-managed-pg-test-${CI_JOB_ID}"
-    - kubectl wait --for=condition=available "job/test-helm-chart-managed-pg-test-${CI_JOB_ID}-create-db" --timeout=5s
+    - kubectl wait --for=condition=available "job/test-helm-chart-managed-pg-test-${CI_JOB_ID}-create-db" --timeout=5s || true
     - kubectl logs -f "job/test-helm-chart-managed-pg-test-${CI_JOB_ID}-create-db"
     - kubectl wait --for=condition=complete "job/test-helm-chart-managed-pg-test-${CI_JOB_ID}-create-db" --timeout=5s
     #
