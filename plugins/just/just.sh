@@ -103,7 +103,7 @@ test () {
 
   kubectl apply \
     -f \
-    "$manifests_directory/$release_name/test" \
+    "$manifests_directory/$release_name/tests" \
     "$@"
 }
 
