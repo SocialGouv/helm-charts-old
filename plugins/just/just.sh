@@ -108,7 +108,9 @@ test () {
 
   kubectl get job --no-headers \
     -o custom-columns=":metadata.name" \
-    -l "app.kubernetes.io/instance=$release_name" | \
+    -l "app.kubernetes.io/instance=$release_name" \
+    -l "just=test" | \
+    \
     xargs -I {} sh -xc "
   kubectl wait --for=condition=available job/{} --timeout=5s || true
   kubectl logs -f job/{}
