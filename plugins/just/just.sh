@@ -107,7 +107,7 @@ test () {
     "$@"
 
   kubectl get job --no-headers -o custom-columns=":metadata.name" -l $release_name | \
-    xargs -I {} sh -c "
+    xargs -I {} sh -xc "
   kubectl wait --for=condition=available job/{} --timeout=5s || true
   kubectl logs -f job/{}
   kubectl wait --for=condition=complete job/{} --timeout=5s
