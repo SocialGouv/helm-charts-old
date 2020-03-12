@@ -19,7 +19,7 @@ spec:
             - sh
           args:
             - -c
-            - psql ${NEW_DB_NAME} -qtA -c '\\du'
+            - psql ${NEW_DB_NAME} -qtA -c '\du'
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
