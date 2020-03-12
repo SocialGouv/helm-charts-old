@@ -3,6 +3,7 @@ kind: Job
 metadata:
   name: "test-{{ include "managed-pg.fullname" . }}-create-db"
   labels:
+    just: test
 {{ include "managed-pg.labels" . | indent 4 }}
 spec:
   backoffLimit: 0
