@@ -96,6 +96,17 @@ render() {
   rm -rf ${temp_directory:?} || true
 }
 
+test () {
+  local release_name=$1
+
+  shift;
+
+  kubectl apply \
+    -f \
+    "$manifests_directory/$release_name/test" \
+    "$@"
+}
+
 case "${1:-"help"}" in
   "apply"):
     shift;
@@ -112,6 +123,10 @@ case "${1:-"help"}" in
   "render"):
     shift;
     render "$@"
+    ;;
+  "test"):
+    shift;
+    test "$@"
     ;;
   "help")
     usage
