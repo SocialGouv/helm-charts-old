@@ -24,4 +24,4 @@ Test socialgouv/managed-pg:
 
   after_script:
     - kubectl config set-context --current --namespace=helm-charts-test
-    - helm just delete helm-chart-managed-pg-test-${CI_JOB_ID} || true
+    # - helm just delete helm-chart-managed-pg-test-${CI_JOB_ID} || true
