@@ -20,16 +20,24 @@ spec:
         - name:  {{ include "managed-pg.fullname" . }}
           image: "{{ .Values.jobs.image.repository }}:{{ .Values.jobs.image.tag }}"
           imagePullPolicy: {{ .Values.jobs.image.pullPolicy }}
-          command: ["create-db-user"]
+          command:
+            - sh
+          args:
+            - "-c"
+            - "create-db-user || drop-db-user && create-db-user"
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
             {{- toYaml .Values.jobs.env | nindent 12 }}
-            # create-db args
+            # create-db-user args
             - name: NEW_DB_NAME
               value: {{ .Values.createDb.name }}
             - name: NEW_PASSWORD
               value: {{ .Values.createDb.password }}
             - name: NEW_USER
+              value: {{ .Values.createDb.user }}
+            - name: DROP_DATABASE
+              value: {{ .Values.createDb.name }}
+            - name: DROP_USER
               value: {{ .Values.createDb.user }}
       restartPolicy: {{ .Values.jobs.restartPolicy }}
