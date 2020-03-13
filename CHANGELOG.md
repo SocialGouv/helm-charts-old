@@ -1,3 +1,11 @@
+## [4.0.1](https://github.com/SocialGouv/helm-charts/compare/v4.0.0...v4.0.1) (2020-03-13)
+
+
+### Bug Fixes
+
+* **hpa:** change default targetPort to 80 ([#50](https://github.com/SocialGouv/helm-charts/issues/50)) ([3ef1829](https://github.com/SocialGouv/helm-charts/commit/3ef1829d1391979b989008cd8a06d31d70eda8d9))
+* **nodejs:** change default targetPort to 80 ([#51](https://github.com/SocialGouv/helm-charts/issues/51)) ([7b70897](https://github.com/SocialGouv/helm-charts/commit/7b708975634e25a14960d3e52d8067de45a6e559))
+
 # [4.0.0](https://github.com/SocialGouv/helm-charts/compare/v3.0.1...v4.0.0) (2020-03-03)
 
 
