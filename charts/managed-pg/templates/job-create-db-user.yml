@@ -19,14 +19,14 @@ spec:
     spec:
       containers:
         - name:  {{ include "managed-pg.fullname" . }}
-          image: "{{ .Values.jobs.image.repository }}:{{ .Values.jobs.image.tag }}"
-          imagePullPolicy: {{ .Values.jobs.image.pullPolicy }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
             - create-db-user
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
-            {{- toYaml .Values.jobs.env | nindent 12 }}
+            {{- toYaml .Values.env | nindent 12 }}
             # create-db-user args
             - name: NEW_DB_NAME
               value: {{ .Values.db.name }}
@@ -34,4 +34,4 @@ spec:
               value: {{ .Values.db.password }}
             - name: NEW_USER
               value: {{ .Values.db.user }}
-      restartPolicy: {{ .Values.jobs.restartPolicy }}
+      restartPolicy: {{ .Values.restartPolicy }}

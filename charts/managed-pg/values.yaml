@@ -2,52 +2,51 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+## Azure DB image
+## Most jobs need our `azure-db` image to work
 image:
-  repository: nginx
-  tag: stable
+  repository: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/azure-db
+  tag: "0.28.0"
   pullPolicy: IfNotPresent
 
-jobs:
-  image:
-    repository: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/azure-db
-    tag: "0.28.0"
-    pullPolicy: IfNotPresent
-
-  env:
-    - name: PGSSLMODE
-      value: "require"
-    - name: PGHOST
-      valueFrom:
-        secretKeyRef:
-          name: azure-pg-admin-user
-          key: PG_HOST
-    - name: PGUSER
-      valueFrom:
-        secretKeyRef:
-          name: azure-pg-admin-user
-          key: ADMIN_PG_USER
-    - name: PGPASSWORD
-      valueFrom:
-        secretKeyRef:
-          name: azure-pg-admin-user
-          key: ADMIN_PG_PASSWORD
-
-  restartPolicy: Never
-
-db:
-  name: "new_db"
-  password: "new_pass"
-  user: "new_user"
-
-
-imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-service:
-  type: ClusterIP
-  port: 80
+## The postgres database job subject
+db:
+  ## The database name to create or drop
+  name: "new_db"
+  ## The new user name to create or drop
+  user: "new_user"
+  ## The new user password
+  password: "new_pass"
 
+## jobs default env
+env:
+  - name: PGSSLMODE
+    value: "require"
+  - name: PGHOST
+    valueFrom:
+      secretKeyRef:
+        name: azure-pg-admin-user
+        key: PG_HOST
+  - name: PGUSER
+    valueFrom:
+      secretKeyRef:
+        name: azure-pg-admin-user
+        key: ADMIN_PG_USER
+  - name: PGPASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: azure-pg-admin-user
+        key: ADMIN_PG_PASSWORD
+
+## jobs restart policy
+restartPolicy: Never
+
+## Configure resource requests and limits
+## ref: http://kubernetes.io/docs/user-guide/compute-resources/
+##
 resources:
   requests:
     cpu: 0m
@@ -55,9 +54,3 @@ resources:
   limits:
     cpu: 1000m
     memory: 512Mi
-
-nodeSelector: {}
-
-tolerations: []
-
-affinity: {}

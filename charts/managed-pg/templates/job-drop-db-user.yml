@@ -19,17 +19,17 @@ spec:
     spec:
       containers:
         - name:  {{ include "managed-pg.fullname" . }}
-          image: "{{ .Values.jobs.image.repository }}:{{ .Values.jobs.image.tag }}"
-          imagePullPolicy: {{ .Values.jobs.image.pullPolicy }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
             - drop-db-user
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
-            {{- toYaml .Values.jobs.env | nindent 12 }}
+            {{- toYaml .Values.env | nindent 12 }}
             # drop-db-user args
             - name: DROP_DATABASE
               value: {{ .Values.db.name }}
             - name: DROP_USER
               value: {{ .Values.db.user }}
-      restartPolicy: {{ .Values.jobs.restartPolicy }}
+      restartPolicy: {{ .Values.restartPolicy }}
