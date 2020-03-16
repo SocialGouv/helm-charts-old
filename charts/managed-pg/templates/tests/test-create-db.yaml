@@ -15,7 +15,7 @@ spec:
       containers:
         - name:  "test-if-db-exists"
           image: "postgres:11.5-alpine"
-          imagePullPolicy: {{ .Values.jobs.image.pullPolicy }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
             - sh
           args:
@@ -24,8 +24,8 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
-            {{- toYaml .Values.jobs.env | nindent 12 }}
+            {{- toYaml .Values.env | nindent 12 }}
             # create-db-user args
             - name: NEW_DB_NAME
               value: {{ .Values.db.name }}
-      restartPolicy: {{ .Values.jobs.restartPolicy }}
+      restartPolicy: {{ .Values.restartPolicy }}
