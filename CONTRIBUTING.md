@@ -61,3 +61,21 @@ $ semantic-release
 ```
 
 Our [semantic-release config](./.releaserc.yml) will do the heavy lifting ;)
+
+## Testing
+
+### Manual deployment
+
+```sh
+# You can install the local version of the just plugin by running
+$ helm plugin remove just ; helm plugin install ./plugins/just
+
+# You can make the plugin
+$ JUST_CHARTS_DIRECTORY=charts helm just render <release_name> <chart_name>
+# for example
+$ JUST_CHARTS_DIRECTORY=charts helm just render my-managed-pg-test managed-pg
+
+$ JUST_CHARTS_DIRECTORY=charts helm just test <release_name>
+# for example
+$ JUST_CHARTS_DIRECTORY=charts helm just test my-managed-pg-test
+```
