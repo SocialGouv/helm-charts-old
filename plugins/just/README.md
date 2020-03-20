@@ -61,7 +61,7 @@ $ helm just fetch "socialgouv/nodejs#2.8.0" --debug
 $ helm just render my-release nodejs
 #
 # Any extra arguments will be passed to `helm render`
-# see `helm render --help`
+# see `helm template --help`
 $ helm just render "socialgouv/nodejs#2.8.0" --set image.tag="12-alpine"
 ```
 
@@ -74,8 +74,8 @@ $ helm just render "socialgouv/nodejs#2.8.0" --set image.tag="12-alpine"
 $ helm just apply my-release
 #
 # Any extra arguments will be passed to `helm apply`
-# see `helm apply --help`
-$ helm just apply my-release --debug
+# see `kubctl apply --help`
+$ kubctl just apply my-release --debug
 ```
 
 ### `helm just delete <release_name>`
@@ -87,8 +87,8 @@ $ helm just apply my-release --debug
 $ helm just delete my-release
 #
 # Any extra arguments will be passed to `helm delete`
-# see `helm delete --help`
-$ helm just delete my-release --debug
+# see `kubctl delete --help`
+$ kubctl just delete my-release --debug
 ```
 
 ## Options
