@@ -5,7 +5,7 @@
 ## TL;DR
 
 ```sh
-$ helm just install socialgouv/managed-pg#<version>
+$ helm just fetch socialgouv/managed-pg#<version>
 #
 $ helm just render my-managed-pg managed-pg
 # To create a db and a user
