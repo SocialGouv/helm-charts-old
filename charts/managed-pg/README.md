@@ -30,9 +30,9 @@ Create db:
     - helm just fetch "socialgouv/managed-pg#${HELM_CHART_VERSION}"
     #
     - helm just render helm-chart-managed-pg-test-${CI_JOB_ID} managed-pg
-      --set createDb.name=db_${CI_COMMIT_REF_SLUG}
-      --set createDb.password=pass_${CI_COMMIT_REF_SLUG}
-      --set createDb.user=user_${CI_COMMIT_REF_SLUG}
+      --set db.name=db_${CI_COMMIT_REF_SLUG}
+      --set db.password=pass_${CI_COMMIT_REF_SLUG}
+      --set db.user=user_${CI_COMMIT_REF_SLUG}
     #
     - helm just apply helm-chart-managed-pg-test-${CI_JOB_ID} -l app=create-db-user
 ```
