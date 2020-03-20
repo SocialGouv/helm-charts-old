@@ -96,6 +96,29 @@ render() {
   rm -rf ${temp_directory:?} || true
 }
 
+test () {
+  local release_name=$1
+
+  shift;
+
+  kubectl apply \
+    -f \
+    "$manifests_directory/$release_name/tests" \
+    "$@"
+
+  kubectl get job --no-headers \
+    -o custom-columns=":metadata.name" \
+    -l "app.kubernetes.io/instance=$release_name" \
+    -l "just=test" | \
+    \
+    xargs -I {} sh -xc "
+  kubectl wait --for=condition=available job/{} --timeout=5s || true
+  kubectl logs -f job/{}
+  kubectl wait --for=condition=complete job/{} --timeout=5s
+  kubectl delete job/{}
+    "
+}
+
 case "${1:-"help"}" in
   "apply"):
     shift;
@@ -112,6 +135,10 @@ case "${1:-"help"}" in
   "render"):
     shift;
     render "$@"
+    ;;
+  "test"):
+    shift;
+    test "$@"
     ;;
   "help")
     usage

@@ -2,6 +2,7 @@ include:
   - /charts/nodejs/.gitlab-ci.yml
   - /plugins/just/.gitlab-ci.yml
   - /charts/hpa/.gitlab-ci.yml
+  - /charts/managed-pg/.gitlab-ci.yml
 
 #
 

@@ -1,0 +1,37 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "managed-pg.fullname" . }}-create-db-user
+  labels:
+    app: create-db-user
+{{ include "managed-pg.labels" . | indent 4 }}
+  {{- with .Values.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+{{ include "managed-pg.labels" . | indent 8 }}
+    spec:
+      containers:
+        - name:  {{ include "managed-pg.fullname" . }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+            - create-db-user
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            {{- toYaml .Values.env | nindent 12 }}
+            # create-db-user args
+            - name: NEW_DB_NAME
+              value: {{ .Values.db.name }}
+            - name: NEW_PASSWORD
+              value: {{ .Values.db.password }}
+            - name: NEW_USER
+              value: {{ .Values.db.user }}
+      restartPolicy: {{ .Values.restartPolicy }}

@@ -25,11 +25,12 @@ $ helm install socialgouv/<chart> --version <version>
 
 ## Helm charts
 
-| Project    | Chart                                  | Links                                                                                  |
-| ---------- | -------------------------------------- | -------------------------------------------------------------------------------------- |
-| **nodejs** | [`socialgouv/nodejs`](./charts/nodejs) | [![README](https://img.shields.io/badge/README--green.svg)](./charts/nodejs/README.md) |
-| **hpa**    | [`socialgouv/hpa`](./charts/hpa)       | [![README](https://img.shields.io/badge/README--green.svg)](./charts/hpa/README.md)    |
-| **webapp** | [`socialgouv/webapp`](./charts/webapp) | [![README](https://img.shields.io/badge/README--green.svg)](./charts/webapp/README.md) |
+| Project        | Chart                                          | Links                                                                                      |
+| -------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| **nodejs**     | [`socialgouv/nodejs`](./charts/nodejs)         | [![README](https://img.shields.io/badge/README--green.svg)](./charts/nodejs/README.md)     |
+| **hpa**        | [`socialgouv/hpa`](./charts/hpa)               | [![README](https://img.shields.io/badge/README--green.svg)](./charts/hpa/README.md)        |
+| **managed-pg** | [`socialgouv/managed-pg`](./charts/managed-pg) | [![README](https://img.shields.io/badge/README--green.svg)](./charts/managed-pg/README.md) |
+| **webapp**     | [`socialgouv/webapp`](./charts/webapp)         | [![README](https://img.shields.io/badge/README--green.svg)](./charts/webapp/README.md)     |
 
 ## Helm plugins
 
