@@ -1,3 +1,10 @@
+# [4.1.0](https://github.com/SocialGouv/helm-charts/compare/v4.0.1...v4.1.0) (2020-03-20)
+
+
+### Features
+
+* **managed-pg:** add  managed-pg chart ([#49](https://github.com/SocialGouv/helm-charts/issues/49)) ([0efb76b](https://github.com/SocialGouv/helm-charts/commit/0efb76b6c3863d21ff36e0fd6273db7012728932))
+
 ## [4.0.1](https://github.com/SocialGouv/helm-charts/compare/v4.0.0...v4.0.1) (2020-03-13)
 
 
