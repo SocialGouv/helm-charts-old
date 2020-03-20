@@ -1,3 +1,18 @@
+# [5.0.0](https://github.com/SocialGouv/helm-charts/compare/v4.1.0...v5.0.0) (2020-03-20)
+
+
+* refactor(app)!: unify socialgouv app charts (#46) ([69322b1](https://github.com/SocialGouv/helm-charts/commit/69322b11bf849548908831331e57fecfb23fd0aa)), closes [#46](https://github.com/SocialGouv/helm-charts/issues/46) [socialgouv/nodejs#4](https://github.com/socialgouv/nodejs/issues/4) [socialgouv/app#5](https://github.com/socialgouv/app/issues/5) [socialgouv/hpa#4](https://github.com/socialgouv/hpa/issues/4) [socialgouv/app#5](https://github.com/socialgouv/app/issues/5) [#44](https://github.com/SocialGouv/helm-charts/issues/44)
+
+
+### BREAKING CHANGES
+
+* **Unify socialgouv app charts**
+    - As the `website`, `nodejs`and `hpa` charts are shockingly similar, we decided to merge them to an `app` chart that does all they do.
+
+      For `socialgouv/nodejs` charts nothing really change. The default values are similar.
+
+      ```diff
+
 # [4.1.0](https://github.com/SocialGouv/helm-charts/compare/v4.0.1...v4.1.0) (2020-03-20)
 
 
