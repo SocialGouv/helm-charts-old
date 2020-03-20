@@ -7,7 +7,11 @@
 ```sh
 $ helm just install socialgouv/managed-pg#<version>
 #
-$ helm just render my-managed-pg-${CI_JOB_ID} managed-pg
+$ helm just render my-managed-pg managed-pg
+# To create a db and a user
+$ helm just apply my-managed-pg managed-pg -l app=create-db-user
+# To drop a db and a user
+$ helm just apply my-managed-pg managed-pg -l app=drop-db-user
 ```
 
 ```yaml
