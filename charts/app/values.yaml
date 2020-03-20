@@ -1,0 +1,134 @@
+## Default values for app.
+
+## Node image placeholder
+## App is made to host node image as default.
+## You want to replace this by your image
+image:
+  repository: node
+  tag: lts-alpine
+  pullPolicy: IfNotPresent
+
+## String to partially override app.fullname template (will maintain the release name)
+##
+# nameOverride:
+
+## String to fully override app.fullname template
+##
+# fullnameOverride:
+
+## Extra label to add deploy, srv, and ing
+labels: {}
+  ## For example:
+  # owner: default # where the project is in the cluster
+  # team: helm-charts # the github "team" or repo name
+
+## App deployment configuration
+##
+deployment:
+
+  annotations: {}
+  # app.gitlab.com/app: ${CI_PROJECT_PATH_SLUG}
+  # app.gitlab.com/env: ${CI_ENVIRONMENT_SLUG}
+
+  replicaCount: 1
+  imagePullSecrets: []
+
+  port: 80
+
+  ## Configure extra options for liveness and readiness probes
+  ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/#configure-probes)
+  ##
+  livenessProbe:
+    initialDelaySeconds: 5
+    path: /
+    port: 80
+    periodSeconds: 3
+    failureThreshold: 3
+    timeoutSeconds: 5
+  readinessProbe:
+    initialDelaySeconds: 5
+    path: /
+    port: 80
+    periodSeconds: 3
+    failureThreshold: 3
+    timeoutSeconds: 5
+
+  ## Configure resource requests and limits
+  ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
+  ##
+  resources:
+    limits:
+      cpu: 50m
+      memory: 32Mi
+    requests:
+      cpu: 5m
+      memory: 16Mi
+
+  ## An array to add environment variables
+  ##
+  env:
+    - name: PORT
+      value: "80"
+    - name: NODE_ENV
+      value: "production"
+
+  ## Set `ingress.enabled` to `true` to enable ingress
+  ##
+  nodeSelector: {}
+
+  ## Set `ingress.enabled` to `true` to enable ingress
+  ##
+  tolerations: []
+
+  ## Set `ingress.enabled` to `true` to enable ingress
+  ##
+  affinity: {}
+
+  ## Set `ingress.enabled` to `true` to enable ingress
+  ##
+  initContainers: []
+
+## App ingress configuration
+##
+ingress:
+  ## Set `ingress.enabled` to `true` to enable ingress
+  ##
+  enabled: false
+  annotations: {}
+    # appgw.ingress.kubernetes.io/ssl-redirect: "true"
+    # certmanager.k8s.io/cluster-issuer: letsencrypt-staging
+    # kubernetes.io/ingress.class: "azure/application-gateway"
+    # kubernetes.io/tls-acme: "true"
+  hosts: []
+    # - host: test.app.dev.fabrique.social.gouv.fr
+    #   paths:
+    #     - path: /
+    #       servicePort: 80
+  tls: []
+    # - hosts:
+    #     - test.app.dev.fabrique.social.gouv.fr
+    #   secretName: app-crt
+
+## App service configuration
+##
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+
+## App hpa configuration
+##
+autoscaling:
+  ## Set `autoscaling.enabled` to `true` to enable auto scaling
+  ##
+  enabled: false
+
+  minReplicas: 1
+  maxReplicas: 10
+
+  ## Auto scaling based CPU
+  ## Will trigger if 80% of the cpu is used
+  targetCPUAverageUtilizationPercentage: 80
+  ## Auto scaling based memory
+  ## Will trigger if 80% of the memory is used
+  targetMemoryAverageUtilizationPercentage: 80

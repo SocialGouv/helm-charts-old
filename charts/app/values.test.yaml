@@ -1,0 +1,45 @@
+# Test values for certificate.
+
+image:
+  repository: djfarrelly/maildev
+  tag: 1.1.0
+
+deployment:
+
+  env:
+    - name: PORT
+      value: "80"
+    - name: NODE_ENV
+      value: "test"
+
+  livenessProbe:
+    initialDelaySeconds: 6
+    path: /
+    port: 80
+    periodSeconds: 4
+    failureThreshold: 4
+    timeoutSeconds: 6
+  readinessProbe:
+    initialDelaySeconds: 6
+    path: /
+    port: 80
+    periodSeconds: 4
+    failureThreshold: 4
+    timeoutSeconds: 6
+
+  initContainers:
+    - name: test-init-containers
+      image: alpine:3.10
+      command:
+        - sh
+        - -c
+        - |
+          echo Ready;
+
+ingress:
+  enabled: true
+  annotations:
+    certmanager.k8s.io/cluster-issuer: letsencrypt-staging
+
+autoscaling:
+  enabled: true

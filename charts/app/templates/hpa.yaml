@@ -2,11 +2,11 @@
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "hpa.fullname" . }}
+  name: {{ include "app.fullname" . }}
   annotations:
     {{- toYaml .Values.deployment.annotations | nindent 4 }}
   labels:
-    app.kubernetes.io/name: {{ include "hpa.name" . }}
+    app.kubernetes.io/name: {{ include "app.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
 spec:
   minReplicas: {{ .Values.autoscaling.minReplicas }}
@@ -31,5 +31,5 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "hpa.fullname" . }}
+    name: {{ include "app.fullname" . }}
 {{- end }}
