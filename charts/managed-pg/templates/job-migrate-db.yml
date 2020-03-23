@@ -1,0 +1,30 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "managed-pg.fullname" . }}-migrate-db
+  labels:
+    app: migrate-db
+{{ include "managed-pg.labels" . | indent 4 }}
+  {{- with .Values.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+{{ include "managed-pg.labels" . | indent 8 }}
+    spec:
+      containers:
+        - name:  {{ include "managed-pg.fullname" . }}
+          image: "{{ .Values.application.image.repository }}:{{ .Values.application.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+            - {{ .Values.application.migrateCommand }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            {{- toYaml .Values.env | nindent 12 }}
+      restartPolicy: {{ .Values.restartPolicy }}

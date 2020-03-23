@@ -12,6 +12,13 @@ image:
 nameOverride: ""
 fullnameOverride: ""
 
+# image used to bootstrap the database with migrate-db
+application:
+  image:
+    repository: ""
+    tag: ""
+  migrateCommand: ""
+
 ## The postgres database job subject
 db:
   ## The database name to create or drop
