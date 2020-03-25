@@ -12,6 +12,17 @@
       For `socialgouv/nodejs` charts nothing really change. The default values are similar.
 
       ```diff
+      - helm just fetch socialgouv/nodejs#4.0.0
+      + helm just fetch socialgouv/app#5.0.0
+      ```
+
+      For `socialgouv/hpa` charts **the autoscaling is disabled by default**
+
+      ```diff
+      - helm just fetch socialgouv/hpa#4.0.0
+      + helm just fetch socialgouv/app#5.0.0
+      ```
+      
 
 # [4.1.0](https://github.com/SocialGouv/helm-charts/compare/v4.0.1...v4.1.0) (2020-03-20)
 
