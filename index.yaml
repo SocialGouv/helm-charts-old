@@ -3,6 +3,26 @@ entries:
   app:
   - apiVersion: v1
     appVersion: "1"
+    created: "2020-03-25T18:32:49.591191818Z"
+    description: Social Gouv App Helm chart for Kubernetes
+    digest: c7760da40f6691b5173d723dc42a89d8beb63e4e1d5f34a40a83c14c38f9b0c8
+    home: https://github.com/SocialGouv/helm-charts/tree/master/charts/app
+    icon: https://github.com/kubernetes/community/raw/master/icons/png/resources/labeled/hpa-128.png
+    keywords:
+    - app
+    - hpa
+    - Horizontal Pod Autoscaler
+    maintainers:
+    - email: dsi-incubateur@sg.social.gouv.fr
+      name: Incubateur des Ministères Sociaux
+    name: app
+    sources:
+    - https://github.com/SocialGouv/helm-charts/tree/master/charts/app
+    urls:
+    - https://github.com/SocialGouv/helm-charts/releases/download/v5.1.0/app-5.1.0.tgz
+    version: 5.1.0
+  - apiVersion: v1
+    appVersion: "1"
     created: "2020-03-20T16:26:39.028576964Z"
     description: Social Gouv App Helm chart for Kubernetes
     digest: aee9fbd50f813f9d831c48c98ff784787659dc63d31a2e055bd8a05a966d6c16
@@ -556,6 +576,26 @@ entries:
     - https://github.com/SocialGouv/helm-charts/releases/download/v2.9.0/hpa-2.9.0.tgz
     version: 2.9.0
   managed-pg:
+  - apiVersion: v1
+    appVersion: "1"
+    created: "2020-03-25T18:32:49.591657719Z"
+    description: Social Gouv Managed Postgres Helm chart for Kubernetes
+    digest: 7569bda56680f67420a01609cb985b51b79d4a212c62f3cd35cf99daa6f59311
+    home: https://github.com/SocialGouv/helm-charts/tree/master/charts/managed-pg
+    icon: https://azurecomcdn.azureedge.net/cvt-7f20918d0143618d134d358f250496fac09c05555c7f626c7cb3ea673a2ddcaf/less/images/section/postgresql.jpg
+    keywords:
+    - Managed
+    - Postgres
+    - managed-pg
+    maintainers:
+    - email: dsi-incubateur@sg.social.gouv.fr
+      name: Incubateur des Ministères Sociaux
+    name: managed-pg
+    sources:
+    - https://github.com/SocialGouv/helm-charts/tree/master/charts/managed-pg
+    urls:
+    - https://github.com/SocialGouv/helm-charts/releases/download/v5.1.0/managed-pg-5.1.0.tgz
+    version: 5.1.0
   - apiVersion: v1
     appVersion: "1"
     created: "2020-03-20T16:26:39.031363408Z"
@@ -1442,4 +1482,4 @@ entries:
     urls:
     - https://github.com/SocialGouv/helm-charts/releases/download/v0.1.0/webapp-0.1.0.tgz
     version: 0.1.0
-generated: "2020-03-20T16:26:39.027334411Z"
+generated: "2020-03-25T18:32:49.590487416Z"

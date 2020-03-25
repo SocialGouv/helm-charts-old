@@ -1,3 +1,10 @@
+# [5.1.0](https://github.com/SocialGouv/helm-charts/compare/v5.0.0...v5.1.0) (2020-03-25)
+
+
+### Features
+
+* **app:** add gitlab deploy boards annotations ([#52](https://github.com/SocialGouv/helm-charts/issues/52)) ([ba9a075](https://github.com/SocialGouv/helm-charts/commit/ba9a07535066980b4c11c62a1adb8cd548e34482))
+
 # [5.0.0](https://github.com/SocialGouv/helm-charts/compare/v4.1.0...v5.0.0) (2020-03-20)
 
 
