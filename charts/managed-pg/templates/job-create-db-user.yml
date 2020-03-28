@@ -34,4 +34,6 @@ spec:
               value: {{ .Values.db.password }}
             - name: NEW_USER
               value: {{ .Values.db.user }}
+          envFrom:
+            {{- toYaml .Values.envFrom | nindent 12 }}
       restartPolicy: {{ .Values.restartPolicy }}

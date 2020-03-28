@@ -32,4 +32,6 @@ spec:
               value: {{ .Values.db.name }}
             - name: DROP_USER
               value: {{ .Values.db.user }}
+          envFrom:
+            {{- toYaml .Values.envFrom | nindent 12 }}
       restartPolicy: {{ .Values.restartPolicy }}
