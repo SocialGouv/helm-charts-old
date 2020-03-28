@@ -19,7 +19,7 @@ Test socialgouv/managed-pg:
       --set db.password="pass_${BRANCH_NAME_HASHED}"
       --set db.user="user_${BRANCH_NAME_HASHED}"
       --set application.migrateCommand="echo migration"
-      --set application.image.repository="containous/whoami"
+      --set application.image.repository="registry.hub.docker.com/containous/whoami"
       --set application.image.tag="master"
     #
     # Clean up case
