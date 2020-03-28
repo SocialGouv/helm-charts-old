@@ -20,7 +20,7 @@ spec:
             - sh
           args:
             - -c
-            - "psql -qtA SELECT EXISTS (SELECT FROM information_schema.tables  WHERE  table_schema = 'schema_name' AND    table_name   = 'sample_table_name');"
+            - "psql -qtA SELECT EXISTS (SELECT FROM information_schema.tables WHERE table_schema = 'schema_name' AND table_name = 'test_migration');"
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
