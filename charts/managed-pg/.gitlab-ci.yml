@@ -18,7 +18,7 @@ Test socialgouv/managed-pg:
       --set db.name="db_${BRANCH_NAME_HASHED}"
       --set db.password="pass_${BRANCH_NAME_HASHED}"
       --set db.user="user_${BRANCH_NAME_HASHED}"
-      --set application.migrateCommand="psql -d "${db_${BRANCH_NAME_HASHED}}" -c \"CREATE TABLE test_migration (id TYPE integer)\""
+      --set application.migrateCommand="psql -d "db_${BRANCH_NAME_HASHED}" -c \"CREATE TABLE test_migration (id TYPE integer)\""
       --set application.image.repository="registry.hub.docker.com/postgres"
       --set application.image.tag="11.5-alpine"
     #
