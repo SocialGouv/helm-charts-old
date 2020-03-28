@@ -19,8 +19,8 @@ Test socialgouv/managed-pg:
       --set db.password="pass_${BRANCH_NAME_HASHED}"
       --set db.user="user_${BRANCH_NAME_HASHED}"
       --set application.migrateCommand="echo migration"
-      --set application.image.repository="registry.hub.docker.com/containous/whoami"
-      --set application.image.tag="master"
+      --set application.image.repository="registry.hub.docker.com/postgres"
+      --set application.image.tag="11.5-alpine"
     #
     # Clean up case
     - helm just apply "helm-chart-managed-pg-test-${CI_JOB_ID}" -l app=drop-db-user
