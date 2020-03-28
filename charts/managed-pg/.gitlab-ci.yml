@@ -35,13 +35,13 @@ Test socialgouv/managed-pg:
     #
     - helm just apply "helm-chart-managed-pg-test-${CI_JOB_ID}" -l app=create-db-user
     - kubectl wait --for=condition=complete "job/helm-chart-managed-pg-test-${CI_JOB_ID}-create-db-user" --timeout=2m
-    - helm just test "helm-chart-managed-pg-test-${CI_JOB_ID}" --cleanup --debug
+    - helm just test "helm-chart-managed-pg-test-${CI_JOB_ID}" --debug
     #
     #
     #
     - helm just apply "helm-chart-managed-pg-test-${CI_JOB_ID}" -l app=migrate-db
     - kubectl wait --for=condition=complete "job/helm-chart-managed-pg-test-${CI_JOB_ID}-migrate-db" --timeout=2m
-    - helm just test "helm-chart-managed-pg-test-${CI_JOB_ID}" --cleanup --debug
+    - helm just test "helm-chart-managed-pg-test-${CI_JOB_ID}" --debug
     #
     - helm just apply "helm-chart-managed-pg-test-${CI_JOB_ID}" -l app=drop-db-user
     - kubectl wait --for=condition=complete "job/helm-chart-managed-pg-test-${CI_JOB_ID}-drop-db-user" --timeout=2m
