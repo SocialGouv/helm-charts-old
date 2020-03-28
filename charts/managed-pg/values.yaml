@@ -31,22 +31,25 @@ db:
 ## jobs default env
 env:
   - name: PGSSLMODE
-    value: "require"
+    valueFrom:
+      secretKeyRef:
+        name: azure-pg-admin-user
+        key: PGSSLMODE
   - name: PGHOST
     valueFrom:
       secretKeyRef:
         name: azure-pg-admin-user
-        key: PG_HOST
+        key: PGHOST
   - name: PGUSER
     valueFrom:
       secretKeyRef:
         name: azure-pg-admin-user
-        key: ADMIN_PG_USER
+        key: PGUSER
   - name: PGPASSWORD
     valueFrom:
       secretKeyRef:
         name: azure-pg-admin-user
-        key: ADMIN_PG_PASSWORD
+        key: PGPASSWORD
 
 ## jobs restart policy
 restartPolicy: Never
