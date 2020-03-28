@@ -18,6 +18,9 @@ Test socialgouv/managed-pg:
       --set db.name="db_${BRANCH_NAME_HASHED}"
       --set db.password="pass_${BRANCH_NAME_HASHED}"
       --set db.user="user_${BRANCH_NAME_HASHED}"
+      --set application.migrateCommand="echo migration"
+      --set application.image.repository="containous/whoami"
+      --set application.image.tag="master"
     #
     # Clean up case
     - helm just apply "helm-chart-managed-pg-test-${CI_JOB_ID}" -l app=drop-db-user
@@ -33,6 +36,11 @@ Test socialgouv/managed-pg:
     - helm just apply "helm-chart-managed-pg-test-${CI_JOB_ID}" -l app=create-db-user
     - kubectl wait --for=condition=complete "job/helm-chart-managed-pg-test-${CI_JOB_ID}-create-db-user" --timeout=2m
     - helm just test "helm-chart-managed-pg-test-${CI_JOB_ID}"
+    #
+    #
+    #
+    - helm just apply "helm-chart-managed-pg-test-${CI_JOB_ID}" -l app=migrate-db
+    - kubectl wait --for=condition=complete "job/helm-chart-managed-pg-test-${CI_JOB_ID}-migrate-db" --timeout=2m
     #
     - helm just apply "helm-chart-managed-pg-test-${CI_JOB_ID}" -l app=drop-db-user
     - kubectl wait --for=condition=complete "job/helm-chart-managed-pg-test-${CI_JOB_ID}-drop-db-user" --timeout=2m
