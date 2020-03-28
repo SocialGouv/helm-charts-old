@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: "test-{{ include "managed-pg.fullname" . }}-migrate-db"
+  labels:
+    just: test
+{{ include "managed-pg.labels" . | indent 4 }}
+spec:
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+{{ include "managed-pg.labels" . | indent 8 }}
+    spec:
+      containers:
+        - name:  "test-if-db-migrated"
+          image: "postgres:11.5-alpine"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+            - sh
+          args:
+            - -c
+            - psql -qtA SELECT EXISTS (SELECT FROM information_schema.tables  WHERE  table_schema = 'schema_name' AND    table_name   = 'sample_table_name');
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            {{- toYaml .Values.env | nindent 12 }}
+      restartPolicy: {{ .Values.restartPolicy }}
