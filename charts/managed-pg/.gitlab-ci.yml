@@ -18,9 +18,10 @@ Test socialgouv/managed-pg:
       --set db.name="db_${BRANCH_NAME_HASHED}"
       --set db.password="pass_${BRANCH_NAME_HASHED}"
       --set db.user="user_${BRANCH_NAME_HASHED}"
-      --set application.migrateCommand=psql -d "db_${BRANCH_NAME_HASHED}" -c "CREATE TABLE test_migration (id TYPE integer)"
+      --set application.migrateCommand=psql
       --set application.image.repository="postgres"
       --set application.image.tag="11.5-alpine"
+      # -d "db_${BRANCH_NAME_HASHED}" -c "CREATE TABLE test_migration (id TYPE integer)"
     #
     # Clean up case
     #- helm just apply "helm-chart-managed-pg-test-${CI_JOB_ID}" -l app=drop-db-user
