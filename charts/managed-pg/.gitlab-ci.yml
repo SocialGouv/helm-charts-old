@@ -22,7 +22,7 @@ Test socialgouv/managed-pg:
       --set application.migrateCommandArgs[0]="-d"
       --set application.migrateCommandArgs[1]="db_${BRANCH_NAME_HASHED}"
       --set application.migrateCommandArgs[2]="-c"
-      --set application.migrateCommandArgs[3]="CREATE TABLE test_migration (id TYPE integer)"
+      --set application.migrateCommandArgs[3]="CREATE TABLE test_migration (id serial PRIMARY KEY)"
       --set application.image.repository="postgres"
       --set application.image.tag="11.5-alpine"
       # -d "db_${BRANCH_NAME_HASHED}" -c "CREATE TABLE test_migration (id TYPE integer)"
@@ -38,9 +38,9 @@ Test socialgouv/managed-pg:
     #
     #
     # #
-    - helm just apply "helm-chart-managed-pg-test-${CI_JOB_ID}" -l app=create-db-user
-    - kubectl wait --for=condition=complete "job/helm-chart-managed-pg-test-${CI_JOB_ID}-create-db-user" --timeout=2m
-    - helm just test "helm-chart-managed-pg-test-${CI_JOB_ID}" --debug
+    # - helm just apply "helm-chart-managed-pg-test-${CI_JOB_ID}" -l app=create-db-user
+    # - kubectl wait --for=condition=complete "job/helm-chart-managed-pg-test-${CI_JOB_ID}-create-db-user" --timeout=2m
+    # - helm just test "helm-chart-managed-pg-test-${CI_JOB_ID}" --debug
     #
     #
     #
