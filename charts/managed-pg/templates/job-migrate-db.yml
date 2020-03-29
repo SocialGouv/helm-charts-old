@@ -23,6 +23,8 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
             - {{ .Values.application.migrateCommand }}
+          args:
+            {{- toYaml .Values.application.migrateCommandArgs | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
