@@ -20,7 +20,7 @@ spec:
             - sh
           args:
             - -c
-            - "psql -qtA -c SELECT * from test_migration;"
+            - "psql -qtA -c SELECT * from test_migrationX;"
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
