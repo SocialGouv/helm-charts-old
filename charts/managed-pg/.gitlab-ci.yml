@@ -21,7 +21,6 @@ Test socialgouv/managed-pg:
       --set application.migrateCommand="psql -d "db_${BRANCH_NAME_HASHED}" -c \"CREATE TABLE test_migration (id TYPE integer)\""
       --set application.image.repository="registry.hub.docker.com/postgres"
       --set application.image.tag="11.5-alpine"
-      --set envFrom=[]
     #
     # Clean up case
     - helm just apply "helm-chart-managed-pg-test-${CI_JOB_ID}" -l app=drop-db-user

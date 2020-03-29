@@ -28,6 +28,4 @@ spec:
             # create-db-user args
             - name: NEW_DB_NAME
               value: {{ .Values.db.name }}
-          envFrom:
-            {{- toYaml .Values.envFrom | nindent 12 }}
       restartPolicy: {{ .Values.restartPolicy }}

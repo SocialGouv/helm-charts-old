@@ -28,9 +28,28 @@ db:
   ## The new user password
   password: "new_pass"
 
-envFrom:
-  - secretRef:
-      name: azure-pg-admin-user
+## jobs default env
+env:
+  - name: PGSSLMODE
+    valueFrom:
+      secretKeyRef:
+        name: azure-pg-admin-user
+        key: PGSSLMODE
+  - name: PGHOST
+    valueFrom:
+      secretKeyRef:
+        name: azure-pg-admin-user
+        key: PGHOST
+  - name: PGUSER
+    valueFrom:
+      secretKeyRef:
+        name: azure-pg-admin-user
+        key: PGUSER
+  - name: PGPASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: azure-pg-admin-user
+        key: PGPASSWORD
 
 ## jobs restart policy
 restartPolicy: Never
