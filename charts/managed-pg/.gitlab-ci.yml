@@ -19,7 +19,7 @@ Test socialgouv/managed-pg:
       --set db.password="pass_${BRANCH_NAME_HASHED}"
       --set db.user="user_${BRANCH_NAME_HASHED}"
       --set application.migrateCommand=psql
-      --set application.migrateCommandArgs="-d \"db_${BRANCH_NAME_HASHED}\" -c \"CREATE TABLE test_migration (id TYPE integer)\""
+      --set application.migrateCommandArgs="-d","db_${BRANCH_NAME_HASHED}","-c","CREATE TABLE test_migration (id TYPE integer)"
       --set application.image.repository="postgres"
       --set application.image.tag="11.5-alpine"
       # -d "db_${BRANCH_NAME_HASHED}" -c "CREATE TABLE test_migration (id TYPE integer)"
