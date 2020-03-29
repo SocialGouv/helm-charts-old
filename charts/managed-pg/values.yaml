@@ -32,11 +32,11 @@ db:
 
 ## jobs default env
 env:
-  - name: DATABASE_URL
-    valueFrom:
-      secretKeyRef:
-        name: azure-pg-admin-user
-        key: DATABASE_URL
+  # - name: DATABASE_URL
+  #   valueFrom:
+  #     secretKeyRef:
+  #       name: azure-pg-admin-user
+  #       key: DATABASE_URL
   - name: PGSSLMODE
     valueFrom:
       secretKeyRef:
