@@ -28,8 +28,8 @@ Test socialgouv/managed-pg:
     # If it's not failing withing the first 20s, wait for it to succeed as the db exists
     - kubectl wait --for=condition=failed "job/helm-chart-managed-pg-test-${CI_JOB_ID}-drop-db-user" --timeout=20s ||
       kubectl wait --for=condition=complete "job/helm-chart-managed-pg-test-${CI_JOB_ID}-drop-db-user" --timeout=1m
-    #- helm just delete "helm-chart-managed-pg-test-${CI_JOB_ID}" -l app=drop-db-user
-    #- kubectl wait --for=delete "job/helm-chart-managed-pg-test-${CI_JOB_ID}-drop-db-user" --timeout=30s || true
+    - helm just delete "helm-chart-managed-pg-test-${CI_JOB_ID}" -l app=drop-db-user
+    - kubectl wait --for=delete "job/helm-chart-managed-pg-test-${CI_JOB_ID}-drop-db-user" --timeout=30s || true
     #
     #
     #
