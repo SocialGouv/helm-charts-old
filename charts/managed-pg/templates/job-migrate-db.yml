@@ -29,5 +29,4 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
             {{- toYaml .Values.env | nindent 12 }}
-            # TODO: DATABASE URL
       restartPolicy: {{ .Values.restartPolicy }}
