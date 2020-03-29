@@ -28,7 +28,7 @@ Test socialgouv/managed-pg:
       # -d "db_${BRANCH_NAME_HASHED}" -c "CREATE TABLE test_migration (id TYPE integer)"
     #
     # Clean up case
-    #- helm just apply "helm-chart-managed-pg-test-${CI_JOB_ID}" -l app=drop-db-user
+    - helm just apply "helm-chart-managed-pg-test-${CI_JOB_ID}" -l app=drop-db-user
     # Wait for the drop to fail fast if the db doesn't exist
     # If it's not failing withing the first 20s, wait for it to succeed as the db exists
     #- kubectl wait --for=condition=failed "job/helm-chart-managed-pg-test-${CI_JOB_ID}-drop-db-user" --timeout=20s ||
