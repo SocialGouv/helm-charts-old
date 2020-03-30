@@ -69,8 +69,9 @@ Our [semantic-release config](./.releaserc.yml) will do the heavy lifting ;)
 You can install it with you system package manager
 
 ```sh
-# 
-$ brew install bats
+# OSX
+$ brew tap kaos/shell
+$ brew install bats bats-support bats-assert bats-file
 # Arch
 $ sudo pacman -S bash-bats bash-bats-assert bash-bats-support
 ```
