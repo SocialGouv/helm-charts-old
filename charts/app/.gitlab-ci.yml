@@ -4,7 +4,7 @@ Test socialgouv/app:
   stage: "Code Quality"
   environment:
     name: fabrique-dev
-  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:0.29.0
+  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:1.0.0
   script:
     # Use default socialgouv values
     - envsubst < ./charts/app/values.socialgouv.yaml > /tmp/values.socialgouv.yaml
@@ -12,7 +12,8 @@ Test socialgouv/app:
     - envsubst < ./charts/app/values.test.yaml > /tmp/values.yaml
     - cat /tmp/values.yaml
     #
-    - kubectl config set-context --current --namespace=default
+    - kubectl config set-context --current --namespace=helm-charts-app
+    - helm init --client-only
     - helm delete --purge helm-chart-app-${CI_JOB_ID} || true
     - helm upgrade
         helm-chart-app-${CI_JOB_ID}
