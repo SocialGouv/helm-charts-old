@@ -70,7 +70,8 @@ You can install it with you system package manager
 
 ```sh
 # Mac
-$ brew install bats
+$ brew tap kaos/shell
+$ brew install bats bats-support bats-assert bats-file
 # Arch
 $ sudo pacman -S bash-bats bash-bats-assert bash-bats-support
 ```
