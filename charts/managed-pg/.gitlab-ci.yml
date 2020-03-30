@@ -8,8 +8,7 @@ Test socialgouv/managed-pg:
   variables:
     JUST_CHARTS_DIRECTORY: charts
   script:
-    #
-    - kubectl config set-context --current --namespace=helm-charts-test
+    - kubectl config set-context --current --namespace=helm-charts-managed-pg
     #
     - helm init --client-only
     - helm plugin install ./plugins/just
@@ -22,5 +21,5 @@ Test socialgouv/managed-pg:
     - bats ./charts/managed-pg/test/drop-db-user.bats -t
 
   after_script:
-    - kubectl config set-context --current --namespace=helm-charts-test
+    - kubectl config set-context --current --namespace=helm-charts-managed-pg
     - helm just delete "helm-chart-managed-pg-test-${CI_JOB_ID}" || true
