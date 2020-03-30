@@ -1,0 +1,30 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: "test-{{ include "managed-pg.fullname" . }}-migrate"
+  labels:
+    just: test
+{{ include "managed-pg.labels" . | indent 4 }}
+spec:
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+{{ include "managed-pg.labels" . | indent 8 }}
+    spec:
+      containers:
+        - name:  "test-if-migrated"
+          image: "postgres:11.5-alpine"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+            - sh
+          args:
+            - -c
+            - psql ${NEW_DB_NAME} -qtA -c 'SELECT * from test_migration';
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            {{- toYaml .Values.env | nindent 12 }}
+            - name: NEW_DB_NAME
+              value: {{ .Values.db.name }}
+      restartPolicy: {{ .Values.restartPolicy }}

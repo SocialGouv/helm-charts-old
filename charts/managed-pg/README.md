@@ -77,19 +77,23 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following table lists the configurable parameters of the chart and their default values.
 
-| Parameter                    | Description                         | Default                                                             |
-| ---------------------------- | ----------------------------------- | ------------------------------------------------------------------- |
-| `migration.image.repository` | image used for migrate-db job       |                                                                     |
-| `migration.image.tag`        | image used for migrate-db job       |                                                                     |
-| `migration.command`          | command to migrate the database     |                                                                     |
-| `migration.args`             | argumentrs for the migrate command  |                                                                     |
-| `image.pullPolicy`           | Jobs image pull policy              | `IfNotPresent`                                                      |
-| `image.repository`           | Jobs image name                     | `registry.gitlab.factory.social.gouv.fr/socialgouv/docker/azure-db` |
-| `image.tag`                  | Jobs image tag                      | `0.28.0`                                                            |
-| `db`                         | The postgres database job subject   | `[{name: "new_db", user: "new_user", password: "new_pass"}]`        |
-| `env`                        | Environment variables               | `[{PGSSLMODE: "require", PGHOST: "", PGUSER: "", PGPASSWORD: ""}]`  |
-| `resources`                  | CPU/Memory resource requests/limits | Memory: `0-512Mi`, CPU: `0-1000m`                                   |
-| `restartPolicy`              | Jobs restart policy                 | `Never`                                                             |
+| Parameter                  | Description                         | Default                                                             |
+| -------------------------- | ----------------------------------- | ------------------------------------------------------------------- |
+| `migrate.image.repository` | image used for migrate-db job       |                                                                     |
+| `migrate.image.tag`        | image used for migrate-db job       |                                                                     |
+| `migrate.command`          | command to migrate the database     |                                                                     |
+| `migrate.args`             | arguments for the migrate command   |                                                                     |
+| `seed.image.repository`    | image used for seed-db job          |                                                                     |
+| `seed.image.tag`           | image used for seed-db job          |                                                                     |
+| `seed.command`             | command to seed the database        |                                                                     |
+| `seed.args`                | arguments for the seed command      |                                                                     |
+| `image.pullPolicy`         | Jobs image pull policy              | `IfNotPresent`                                                      |
+| `image.repository`         | Jobs image name                     | `registry.gitlab.factory.social.gouv.fr/socialgouv/docker/azure-db` |
+| `image.tag`                | Jobs image tag                      | `0.28.0`                                                            |
+| `db`                       | The postgres database job subject   | `[{name: "new_db", user: "new_user", password: "new_pass"}]`        |
+| `env`                      | Environment variables               | `[{PGSSLMODE: "require", PGHOST: "", PGUSER: "", PGPASSWORD: ""}]`  |
+| `resources`                | CPU/Memory resource requests/limits | Memory: `0-512Mi`, CPU: `0-1000m`                                   |
+| `restartPolicy`            | Jobs restart policy                 | `Never`                                                             |
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm just render`.
 

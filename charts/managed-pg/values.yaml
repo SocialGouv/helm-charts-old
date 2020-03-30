@@ -12,8 +12,17 @@ image:
 nameOverride: ""
 fullnameOverride: ""
 
-# image used to bootstrap the database with migrate-db
-migration:
+# image used to migrate the database with migrate-db
+migrate:
+  image:
+    repository: ""
+    tag: ""
+  command: psql
+  args:
+    - -a
+
+# image used to seed the database with seed-db
+seed:
   image:
     repository: ""
     tag: ""

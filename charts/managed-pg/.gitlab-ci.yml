@@ -13,7 +13,7 @@ Test socialgouv/managed-pg:
     - helm init --client-only
     #
     # hack just: increase timeout and remove available test, just completed
-    - cat ./plugins/just/just.sh | sed s/kubectl\ wait\ --for=condition=available\ job\\/\{\}\ --timeout=5s\ \|\|\ true// | sed s/--timeout=5s/--timeout=2m/ > ./plugins/just/just.sh2
+    - cat ./plugins/just/just.sh | sed s/--timeout=5s/--timeout=30s/ > ./plugins/just/just.sh2
     - mv ./plugins/just/just.sh2 ./plugins/just/just.sh
     - chmod +x ./plugins/just/just.sh
     #
@@ -24,7 +24,8 @@ Test socialgouv/managed-pg:
     - bats ./charts/managed-pg/test/30-drop-db-user.bats -t || true
     #
     - bats ./charts/managed-pg/test/10-create-db-user.bats -t
-    - bats ./charts/managed-pg/test/20-migrate-db.bats -t
+    - bats ./charts/managed-pg/test/20-migrate.bats -t
+    - bats ./charts/managed-pg/test/25-seed.bats -t
 
     #
     - export RELEASE_NAME=${RELEASE_NAME:="create-db-user-test-${CI_COMMIT_SHORT_SHA}"}

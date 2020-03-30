@@ -1,15 +1,10 @@
----
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ include "managed-pg.fullname" . }}-migrate-db
+  name: "test-{{ include "managed-pg.fullname" . }}-seed"
   labels:
-    app: migrate-db
+    just: test
 {{ include "managed-pg.labels" . | indent 4 }}
-  {{- with .Values.annotations }}
-  annotations:
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
 spec:
   backoffLimit: 0
   template:
@@ -18,15 +13,19 @@ spec:
 {{ include "managed-pg.labels" . | indent 8 }}
     spec:
       containers:
-        - name:  "{{ include "managed-pg.fullname" . }}-migration"
-          image: "{{ .Values.migration.image.repository }}:{{ .Values.migration.image.tag }}"
+        - name:  "test-if-seeded"
+          image: "postgres:11.5-alpine"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
-            - {{ .Values.migration.command }}
+            - sh
           args:
-            {{- toYaml .Values.migration.args | nindent 12 }}
+            - -c
+            # note: egrep exits with status=1 when nothing returned from psql
+            - psql ${NEW_DB_NAME} -Xtc "select * from test_migration where id=43" | egrep .
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
             {{- toYaml .Values.env | nindent 12 }}
+            - name: NEW_DB_NAME
+              value: {{ .Values.db.name }}
       restartPolicy: {{ .Values.restartPolicy }}
