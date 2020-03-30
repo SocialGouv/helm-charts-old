@@ -75,7 +75,7 @@ $ brew install bats
 $ sudo pacman -S bash-bats bash-bats-assert bash-bats-support
 ```
 
-Most tests expects [`bats-assert`](https://github.com/ztombol/bats-assert) and [`bats-support`]https://github.com/ztombol/bats-support) to be present in your system in `/usr/lib`
+Most tests expects [`bats-assert`](https://github.com/ztombol/bats-assert) and [`bats-support`](https://github.com/ztombol/bats-support) to be present in your system in `/usr/lib`
 
 ```bats
 load /usr/lib/bats-support/load.bash
