@@ -88,3 +88,31 @@ The following table lists the configurable parameters of the chart and their def
 | `restartPolicy`    | Jobs restart policy                 | `Never`                                                             |
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm just render`.
+
+## Testing
+
+This chart is using [Bats](https://github.com/sstephenson/bats) tests.  
+Check Testing section in [CONTRIBUTING](../../CONTRIBUTING.md).
+
+In addition, as this chart produce heavy side effects, you might want to run the [`./test/drop-db-user.bats`](./test/drop-db-user.bats) for ensure that the over tests work as expected.
+
+For example : to ensure that the [`./test/create-db-user.bats`](./test/create-db-user.bats) works, the database should not exist. Running the [`./test/drop-db-user.bats`](./test/drop-db-user.bats) will ensure that it will be the case.
+
+```sh
+# From project root path (recommended)
+$ bats ./charts/managed-pg/test/drop-db-user.bats -t
+# From local package path
+$ bats ./test/drop-db-user.bats -t
+#
+$ bats ./charts/managed-pg/test/create-db-user.bats -t
+$ bats ./charts/managed-pg/test/drop-db-user.bats -t
+#
+# or
+#
+$ bats ./charts/managed-pg/test
+ ✓ should create a database and a user
+ ✓ should drop a database and a user
+
+2 tests, 0 failures
+# ~2min52s
+```

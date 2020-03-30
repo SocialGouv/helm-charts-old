@@ -64,6 +64,33 @@ Our [semantic-release config](./.releaserc.yml) will do the heavy lifting ;)
 
 ## Testing
 
+### [Bats](https://github.com/sstephenson/bats)
+
+You can install it with you system package manager
+
+```sh
+# Mac
+$ brew install bats
+# Arch
+$ sudo pacman -S bash-bats bash-bats-assert bash-bats-support
+```
+
+Most tests expects [`bats-assert`](https://github.com/ztombol/bats-assert) and [`bats-support`]https://github.com/ztombol/bats-support) to be present in your system in `/usr/lib`
+
+```bats
+load /usr/lib/bats-support/load.bash
+load /usr/lib/bats-assert/load.bash
+```
+
+See the [shared documentation](https://github.com/ztombol/bats-docs#installation) to learn how to install them.
+
+```sh
+# Ensure to launch tests on the `helm-charts-test` namespace
+$ kubectl config set-context --current --namespace=helm-charts-test
+#
+$ bats ./charts/<my_chart>/test/
+```
+
 ### Manual deployment
 
 ```sh
