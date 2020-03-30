@@ -22,10 +22,8 @@ teardown() {
     --set db.password="pass_${HASHED}" \
     --set db.user="user_${HASHED}"
 
-  assert_line --regexp \
-    "Rendering chart: \"managed-pg\" as .manifests/${RELEASE_NAME}/managed-pg"
-  assert_line --regexp \
-    "wrote .tmp/${RELEASE_NAME}/managed-pg/templates/job-create-db-user.yml"
+  assert_line "Rendering chart: \"managed-pg\" as .manifests/${RELEASE_NAME}/managed-pg"
+  assert_line "wrote .tmp/${RELEASE_NAME}/managed-pg/templates/job-create-db-user.yml"
   assert_success
 
   run helm just apply "${RELEASE_NAME}" -l app=create-db-user

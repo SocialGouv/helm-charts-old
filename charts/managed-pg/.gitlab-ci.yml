@@ -4,13 +4,10 @@ Test socialgouv/managed-pg:
   stage: "Code Quality"
   environment:
     name: fabrique-dev
-  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:0.25.0
+  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:1.0.0
   variables:
     JUST_CHARTS_DIRECTORY: charts
   script:
-    - apk add --no-cache bats
-    - git clone -b 'v0.3.0' --single-branch --depth 1 https://github.com/ztombol/bats-support /usr/lib/bats-support
-    - git clone -b 'v0.3.0' --single-branch --depth 1 https://github.com/ztombol/bats-assert /usr/lib/bats-assert
     #
     - kubectl config set-context --current --namespace=helm-charts-test
     #
