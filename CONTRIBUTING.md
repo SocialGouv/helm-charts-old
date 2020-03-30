@@ -64,6 +64,15 @@ Our [semantic-release config](./.releaserc.yml) will do the heavy lifting ;)
 
 ## Testing
 
+### [Bats](https://github.com/sstephenson/bats)
+
+```sh
+# Ensure to launch tests on the `helm-charts-test` namespace
+$ kubectl config set-context --current --namespace=helm-charts-test
+#
+$ bats ./charts/<my_chart>/test/
+```
+
 ### Manual deployment
 
 ```sh
