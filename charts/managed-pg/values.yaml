@@ -12,6 +12,24 @@ image:
 nameOverride: ""
 fullnameOverride: ""
 
+# image used to migrate the database with migrate-db
+migrate:
+  image:
+    repository: ""
+    tag: ""
+  command: psql
+  args:
+    - -a
+
+# image used to seed the database with seed-db
+seed:
+  image:
+    repository: ""
+    tag: ""
+  command: psql
+  args:
+    - -a
+
 ## The postgres database job subject
 db:
   ## The database name to create or drop
@@ -23,23 +41,31 @@ db:
 
 ## jobs default env
 env:
+  # - name: DATABASE_URL
+  #   valueFrom:
+  #     secretKeyRef:
+  #       name: azure-pg-admin-user
+  #       key: DATABASE_URL
   - name: PGSSLMODE
-    value: "require"
+    valueFrom:
+      secretKeyRef:
+        name: azure-pg-admin-user
+        key: PGSSLMODE
   - name: PGHOST
     valueFrom:
       secretKeyRef:
         name: azure-pg-admin-user
-        key: PG_HOST
+        key: PGHOST
   - name: PGUSER
     valueFrom:
       secretKeyRef:
         name: azure-pg-admin-user
-        key: ADMIN_PG_USER
+        key: PGUSER
   - name: PGPASSWORD
     valueFrom:
       secretKeyRef:
         name: azure-pg-admin-user
-        key: ADMIN_PG_PASSWORD
+        key: PGPASSWORD
 
 ## jobs restart policy
 restartPolicy: Never

@@ -5,7 +5,7 @@ load /usr/lib/bats-assert/load.bash
 
 export JUST_CHARTS_DIRECTORY="charts"
 
-HASHED=$( printf "_${CI_COMMIT_REF_SLUG}" | sha1sum | cut -c1-7 )
+HASHED=$CI_COMMIT_SHORT_SHA
 RELEASE_NAME=${RELEASE_NAME:="create-db-user-test-${HASHED}"}
 
 setup() {
@@ -38,9 +38,9 @@ teardown() {
   refute_output "job.batch/${RELEASE_NAME}-managed-pg-create-db-user condition met"
   assert_failure
 
-  run kubectl wait --for=condition=complete --timeout=5m "job.batch/${RELEASE_NAME}-managed-pg-create-db-user"
+  run kubectl wait --for=condition=complete --timeout=2m "job.batch/${RELEASE_NAME}-managed-pg-create-db-user"
   echo "" >&2
-  echo "After kubectl wait --for=condition=complete --timeout=5m" >&2
+  echo "After kubectl wait --for=condition=complete --timeout=2m" >&2
   echo "$ kubectl logs job.batch/${RELEASE_NAME}-managed-pg-create-db-user" >&2
   kubectl logs "job.batch/${RELEASE_NAME}-managed-pg-create-db-user" >&2
   assert_output "job.batch/${RELEASE_NAME}-managed-pg-create-db-user condition met"
