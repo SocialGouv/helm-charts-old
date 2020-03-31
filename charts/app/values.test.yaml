@@ -43,3 +43,4 @@ ingress:
 
 autoscaling:
   enabled: true
+  maxReplicas: 2
