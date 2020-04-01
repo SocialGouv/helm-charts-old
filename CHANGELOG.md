@@ -1,3 +1,10 @@
+# [5.2.0](https://github.com/SocialGouv/helm-charts/compare/v5.1.0...v5.2.0) (2020-04-01)
+
+
+### Features
+
+* **managed-pg:** migrate/seed-db commands ([#61](https://github.com/SocialGouv/helm-charts/issues/61)) ([c6daf5f](https://github.com/SocialGouv/helm-charts/commit/c6daf5ff2e98184462453b815ccc83c9b726370b))
+
 # [5.1.0](https://github.com/SocialGouv/helm-charts/compare/v5.0.0...v5.1.0) (2020-03-25)
 
 
