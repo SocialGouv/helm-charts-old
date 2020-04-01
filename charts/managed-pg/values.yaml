@@ -15,8 +15,8 @@ fullnameOverride: ""
 # image used to migrate the database with migrate-db
 migrate:
   image:
-    repository: ""
-    tag: ""
+    repository: "postgresql"
+    tag: "11.5-alpine"
   command: psql
   args:
     - -a
@@ -24,8 +24,8 @@ migrate:
 # image used to seed the database with seed-db
 seed:
   image:
-    repository: ""
-    tag: ""
+    repository: "postgresql"
+    tag: "11.5-alpine"
   command: psql
   args:
     - -a
