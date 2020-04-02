@@ -1,6 +1,6 @@
 apiVersion: v1
 name: managed-pg
-version: 5.2.0
+version: 5.2.1
 appVersion: 1.0
 home: https://github.com/SocialGouv/helm-charts/tree/master/charts/managed-pg
 description: Social Gouv Managed Postgres Helm chart for Kubernetes

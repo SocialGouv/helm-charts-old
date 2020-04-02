@@ -1,3 +1,10 @@
+## [5.2.1](https://github.com/SocialGouv/helm-charts/compare/v5.2.0...v5.2.1) (2020-04-02)
+
+
+### Bug Fixes
+
+* **app:** add missing extra labels ([#63](https://github.com/SocialGouv/helm-charts/issues/63)) ([c3897cc](https://github.com/SocialGouv/helm-charts/commit/c3897cc0446e8743596ab5104631b1fe72df8d55))
+
 # [5.2.0](https://github.com/SocialGouv/helm-charts/compare/v5.1.0...v5.2.0) (2020-04-01)
 
 
