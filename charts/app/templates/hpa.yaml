@@ -6,8 +6,7 @@ metadata:
   annotations:
     {{- toYaml .Values.deployment.annotations | nindent 4 }}
   labels:
-    app.kubernetes.io/name: {{ include "app.name" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
+{{ include "app.labels" . | indent 4 }}
 spec:
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
