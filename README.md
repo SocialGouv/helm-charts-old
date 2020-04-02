@@ -27,7 +27,7 @@ $ helm install socialgouv/<chart> --version <version>
 
 | Project        | Chart                                          | Links                                                                                      |
 | -------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| **app**     | [`socialgouv/app`](./charts/app)         | [![README](https://img.shields.io/badge/README--green.svg)](./charts/app/README.md)     |
+| **app**        | [`socialgouv/app`](./charts/app)               | [![README](https://img.shields.io/badge/README--green.svg)](./charts/app/README.md)        |
 | **managed-pg** | [`socialgouv/managed-pg`](./charts/managed-pg) | [![README](https://img.shields.io/badge/README--green.svg)](./charts/managed-pg/README.md) |
 
 ## Helm plugins
