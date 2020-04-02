@@ -26,8 +26,7 @@ teardown() {
     --set migrate.args[1]="db_${HASHED}" \
     --set migrate.args[2]="-c" \
     --set migrate.args[3]="CREATE TABLE test_migration (id serial PRIMARY KEY)" \
-    --set migrate.image.repository="postgres" \
-    --set migrate.image.tag="11.5-alpine" \
+    --set migrate.image="postgres:11.5-alpine" \
 
   assert_line "Rendering chart: \"managed-pg\" as .manifests/${RELEASE_NAME}/managed-pg"
   assert_line "wrote .tmp/${RELEASE_NAME}/managed-pg/templates/job-migrate.yml"

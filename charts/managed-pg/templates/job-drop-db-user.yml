@@ -25,6 +25,9 @@ spec:
             - drop-db-user
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          envFrom:
+            - secretRef:
+                name: azure-pg-admin-user
           env:
             {{- toYaml .Values.env | nindent 12 }}
             # drop-db-user args

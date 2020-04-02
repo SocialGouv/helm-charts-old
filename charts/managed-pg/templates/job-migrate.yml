@@ -19,12 +19,15 @@ spec:
     spec:
       containers:
         - name:  "{{ include "managed-pg.fullname" . }}-migrate"
-          image: "{{ .Values.migrate.image.repository }}:{{ .Values.migrate.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          image: "{{ .Values.migrate.image }}"
+          imagePullPolicy: IfNotPresent
           command:
             - {{ .Values.migrate.command }}
           args:
             {{- toYaml .Values.migrate.args | nindent 12 }}
+          envFrom:
+            - secretRef:
+                name: azure-pg-user
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
