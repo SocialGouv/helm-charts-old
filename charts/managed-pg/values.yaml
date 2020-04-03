@@ -14,12 +14,12 @@ fullnameOverride: ""
 
 # image used to migrate the database with migrate-db
 migrate:
-  image: postgres:11-alpine
+  image: postgres:11.5-alpine
   command: psql
 
 # image used to seed the database with seed-db
 seed:
-  image: postgres:11-alpine
+  image: postgres:11.5-alpine
   command: psql
 
 ## The postgres database job subject
@@ -33,7 +33,6 @@ db:
 
 ## jobs default env
 env:
-
 
 ## jobs restart policy
 restartPolicy: Never
