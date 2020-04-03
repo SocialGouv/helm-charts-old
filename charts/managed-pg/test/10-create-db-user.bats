@@ -22,8 +22,6 @@ teardown() {
     --set db.password="pass_${HASHED}" \
     --set db.user="user_${HASHED}"
 
-  cat .manifests/${RELEASE_NAME}/job-create-db-user.yml
-
   assert_line "Rendering chart: \"managed-pg\" as .manifests/${RELEASE_NAME}/managed-pg"
   assert_line "wrote .tmp/${RELEASE_NAME}/managed-pg/templates/job-create-db-user.yml"
   assert_success
