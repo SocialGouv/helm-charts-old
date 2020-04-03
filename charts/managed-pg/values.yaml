@@ -9,9 +9,6 @@ image:
   tag: "0.28.0"
   pullPolicy: IfNotPresent
 
-nameOverride: ""
-fullnameOverride: ""
-
 # image used to migrate the database with migrate-db
 migrate:
   image: postgres:11.5-alpine

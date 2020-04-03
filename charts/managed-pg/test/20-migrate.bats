@@ -21,11 +21,11 @@ teardown() {
     --set db.name="db_${HASHED}" \
     --set db.password="pass_${HASHED}" \
     --set db.user="user_${HASHED}" \
-    --set migrate.command=psql \
-    --set migrate.args[0]="-d" \
-    --set migrate.args[1]="db_${HASHED}" \
-    --set migrate.args[2]="-c" \
-    --set migrate.args[3]="CREATE TABLE test_migration (id serial PRIMARY KEY)" \
+    --set migrate.command=psql -d db_${HASHED} -c "CREATE TABLE test_migration (id serial PRIMARY KEY)" \
+    # --set migrate.args[0]="-d" \
+    # --set migrate.args[1]="db_${HASHED}" \
+    # --set migrate.args[2]="-c" \
+    # --set migrate.args[3]="CREATE TABLE test_migration (id serial PRIMARY KEY)" \
     --set migrate.image="postgres:11.5-alpine" \
 
   assert_line "Rendering chart: \"managed-pg\" as .manifests/${RELEASE_NAME}/managed-pg"
