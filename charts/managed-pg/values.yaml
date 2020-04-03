@@ -33,7 +33,9 @@ db:
   password: "new_pass"
 
 ## jobs default env
-env: []
+env:
+  - name: DATABASE_URL
+    value: "test"
 
 ## jobs restart policy
 restartPolicy: Never
