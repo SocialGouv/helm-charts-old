@@ -26,8 +26,8 @@ spec:
           args:
             {{- toYaml .Values.seed.args | nindent 12 }}
           envFrom:
-            - secretRef:
-                name: azure-pg-user
+          - secretRef:
+              name: azure-pg-user
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
