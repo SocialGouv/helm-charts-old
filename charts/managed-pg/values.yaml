@@ -16,11 +16,13 @@ fullnameOverride: ""
 migrate:
   image: postgres:11.5-alpine
   command: psql
+  args: []
 
 # image used to seed the database with seed-db
 seed:
   image: postgres:11.5-alpine
   command: psql
+  args: []
 
 ## The postgres database job subject
 db:
