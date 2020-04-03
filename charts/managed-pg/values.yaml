@@ -32,7 +32,7 @@ db:
   password: "new_pass"
 
 ## jobs default env
-env:
+env: []
 
 ## jobs restart policy
 restartPolicy: Never
