@@ -23,6 +23,8 @@ spec:
           imagePullPolicy: IfNotPresent
           command:
             - {{ .Values.migrate.command }}
+          args:
+            {{- toYaml .Values.migrate.args | nindent 12 }}
           envFrom:
           - secretRef:
               name: azure-pg-user

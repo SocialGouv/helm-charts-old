@@ -13,11 +13,15 @@ image:
 migrate:
   image: postgres:11.5-alpine
   command: psql
+  args:
+    - -v
 
 # image used to seed the database with seed-db
 seed:
   image: postgres:11.5-alpine
   command: psql
+  args:
+    - -v
 
 ## The postgres database job subject
 db:

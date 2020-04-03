@@ -17,6 +17,9 @@ spec:
           image: "postgres:11.5-alpine"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
+            - sh
+          args:
+            - -c
             - psql ${NEW_DB_NAME} -qtA -c 'SELECT * from test_migration';
           resources:
             {{- toYaml .Values.resources | nindent 12 }}

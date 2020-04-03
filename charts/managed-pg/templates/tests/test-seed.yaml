@@ -17,6 +17,10 @@ spec:
           image: "postgres:11.5-alpine"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
+            - sh
+          args:
+            - -c
+            # note: egrep exits with status=1 when nothing returned from psql
             - psql ${NEW_DB_NAME} -Xtc "select * from test_migration where id=43" | egrep .
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
