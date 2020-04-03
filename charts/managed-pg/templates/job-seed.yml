@@ -23,8 +23,6 @@ spec:
           imagePullPolicy: IfNotPresent
           command:
             - {{ .Values.seed.command }}
-          args:
-            {{- toYaml .Values.seed.args | nindent 12 }}
           envFrom:
             - secretRef:
                 name: azure-pg-user
