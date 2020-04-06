@@ -11,20 +11,20 @@ labels:
   team: ${CI_PROJECT_NAME}
 
 deployment:
-  port: "${PORT:=80}"
+  port: "${PORT}"
 
   livenessProbe:
-    port: "${PORT:=80}"
+    port: "${PORT}"
   readinessProbe:
-    port: "${PORT:=80}"
+    port: "${PORT}"
 
   annotations:
     app.gitlab.com/app: ${CI_PROJECT_PATH_SLUG}
     app.gitlab.com/env: ${CI_ENVIRONMENT_SLUG}
 
 service:
-  port: ${PORT:=80}
-  targetPort: ${PORT:=80}
+  port: ${PORT}
+  targetPort: ${PORT}
 
 ingress:
   annotations:
@@ -36,7 +36,7 @@ ingress:
     - host: ${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}
       paths:
         - path: /
-          servicePort: "${PORT:=80}"
+          servicePort: "${PORT}"
   tls:
     - hosts:
         - ${CI_PROJECT_NAME}.${KUBE_INGRESS_BASE_DOMAIN}

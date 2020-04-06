@@ -88,6 +88,8 @@ You will find in the [`values.socialgouv.yaml`](./values.socialgouv.yaml) additi
 
 ```sh
 # On GitLab
+# The `values.socialgouv.yaml` requires a PORT to be defined !
+$ export PORT=80
 $ envsubst < ./charts/app/values.socialgouv.yaml > /tmp/values.socialgouv.yaml
 $ helm upgrade my-release socialgouv/app
   --install
