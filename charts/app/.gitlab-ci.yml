@@ -8,6 +8,7 @@ Test socialgouv/app:
   script:
     # Use default socialgouv values
     - envsubst < ./charts/app/values.socialgouv.yaml > /tmp/values.socialgouv.yaml
+    - cat /tmp/values.socialgouv.yaml
     #
     - envsubst < ./charts/app/values.test.yaml > /tmp/values.yaml
     - cat /tmp/values.yaml
