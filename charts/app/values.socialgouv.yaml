@@ -23,8 +23,8 @@ deployment:
     app.gitlab.com/env: ${CI_ENVIRONMENT_SLUG}
 
 service:
-  port: "${PORT:=80}"
-  targetPort: "${PORT:=80}"
+  port: ${PORT:=80}
+  targetPort: ${PORT:=80}
 
 ingress:
   annotations:
