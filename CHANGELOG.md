@@ -1,3 +1,34 @@
+# [6.0.0](https://github.com/SocialGouv/helm-charts/compare/v5.2.2...v6.0.0) (2020-04-06)
+
+
+* feat(app)!: socialgouv apps can change the port (#66) ([197f3d4](https://github.com/SocialGouv/helm-charts/commit/197f3d42623900209d6a96f5f921314ce533c99f)), closes [#66](https://github.com/SocialGouv/helm-charts/issues/66)
+
+
+### BREAKING CHANGES
+
+* **feat(app)!: socialgouv apps can change the port**
+    `PORT` variable is now required to use the `values.socialgouv.yaml`
+
+    **Before**
+
+    ```yaml
+    - envsubst < ./charts/app/values.socialgouv.yaml > /tmp/values.socialgouv.yaml
+    ```
+
+    **After**
+
+    ```yaml
+    - export PORT=80
+    - envsubst < ./charts/app/values.socialgouv.yaml > /tmp/values.socialgouv.yaml
+    ```
+
+    Or 
+
+    ```yaml
+    - export PORT=8080
+    - envsubst < ./charts/app/values.socialgouv.yaml > /tmp/values.socialgouv.yaml
+    ```
+
 ## [5.2.2](https://github.com/SocialGouv/helm-charts/compare/v5.2.1...v5.2.2) (2020-04-02)
 
 
