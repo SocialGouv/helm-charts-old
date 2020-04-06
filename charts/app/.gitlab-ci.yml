@@ -7,7 +7,10 @@ Test socialgouv/app:
   image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:1.0.0
   script:
     # Use default socialgouv values
+    # The `values.socialgouv.yaml` requires a PORT to be defined !
+    - export PORT=80
     - envsubst < ./charts/app/values.socialgouv.yaml > /tmp/values.socialgouv.yaml
+    - cat /tmp/values.socialgouv.yaml
     #
     - envsubst < ./charts/app/values.test.yaml > /tmp/values.yaml
     - cat /tmp/values.yaml
