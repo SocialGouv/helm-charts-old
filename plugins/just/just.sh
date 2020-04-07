@@ -112,9 +112,9 @@ test () {
     -l "just=test" | \
     \
     xargs -I {} sh -xc "
-  kubectl wait --for=condition=available job/{} --timeout=5s || true
+  kubectl wait --for=condition=available job/{} --timeout=1m || true
   kubectl logs -f job/{}
-  kubectl wait --for=condition=complete job/{} --timeout=5s
+  kubectl wait --for=condition=complete job/{} --timeout=1m
   kubectl delete job/{}
     "
 }
