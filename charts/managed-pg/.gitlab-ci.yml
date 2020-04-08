@@ -19,6 +19,10 @@ Test socialgouv/managed-pg:
     #
     - helm plugin install ./plugins/just
     #
+    # NOTE(douglasduteil): job tests require `parallel` to be installed
+    # The test will wait in parallel for job condition
+    - apk add --no-cache parallel
+    #
     #
     - bats -t ./charts/managed-pg/test
 

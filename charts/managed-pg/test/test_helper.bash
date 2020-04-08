@@ -16,9 +16,31 @@ test_job () {
 }
 
 job_success () {
-  run kubectl wait --for=condition=failed --timeout=10s "${JOB_ID}"
-  echo "" >&2
-  echo "# Fast fail detection" >&2
+  # echo "$ kubectl wait --for=condition=available --timeout=10s ${JOB_ID}" >&2
+  # run kubectl wait --for=condition=available --timeout=10s "${JOB_ID}" >&2
+  # kubectl get "${JOB_ID}" -o yaml >&2
+  # assert_success
+
+  k8s_job_wait () {
+    echo "kubectl wait --for=condition=$1 --timeout=1m ${JOB_ID}"
+    kubectl wait --for=condition=$1 --timeout=1m "${JOB_ID}"
+    echo "k8s_job_wait $1 done with $?"
+    case "${1-}" in
+      "failed")
+        return 1
+      ;;
+      *)
+        return $?
+      ;;
+    esac
+  }
+  export JOB_ID
+  export -f k8s_job_wait
+  run parallel \
+    --env JOB_ID \
+    --halt now,done=1 \
+    k8s_job_wait ::: failed complete
+
   echo "$ kubectl wait --for=condition=failed --timeout=10s ${JOB_ID}" >&2
   echo "$ kubectl get pod -l job-name=${JOB_NAME}" >&2
   kubectl get pod -l job-name="${JOB_NAME}" >&2
@@ -27,17 +49,7 @@ job_success () {
   # echo "$ kubectl get events --field-selector involvedObject.name=migrate-test-local-managed-pg-migrate-zsr2b" >&2
   # kubectl get events --field-selector involvedObject.name=migrate-test-local-managed-pg-migrate-zsr2b >&2 || true
   echo "$ kubectl logs ${JOB_ID}" >&2
-  kubectl logs "${JOB_ID}" >&2 || true
-  refute_output "${JOB_ID} condition met"
-  assert_failure
-
-  run kubectl wait --for=condition=complete --timeout=2m "${JOB_ID}"
-  echo "" >&2
-  echo "# Slow complete check" >&2
-  echo "$ kubectl wait --for=condition=complete --timeout=2m ${JOB_ID}" >&2
-  echo "$ kubectl logs ${JOB_ID}" >&2
   kubectl logs "${JOB_ID}" >&2
-  assert_output "${JOB_ID} condition met"
   assert_success
 }
 
