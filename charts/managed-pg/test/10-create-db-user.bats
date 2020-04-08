@@ -1,50 +1,39 @@
 #!/usr/bin/env bats
 
-load /usr/lib/bats-support/load.bash
-load /usr/lib/bats-assert/load.bash
+load test_helper
 
-export JUST_CHARTS_DIRECTORY="charts"
+test_job "create-db-user"
 
-HASHED=$CI_COMMIT_SHORT_SHA
-RELEASE_NAME=${RELEASE_NAME:="create-db-user-test-${HASHED}"}
-
-setup() {
-  helm just delete "${RELEASE_NAME}" -l app=create-db-user || true
+setup_all() {
+  helm just delete "${RELEASE_NAME}" -l app=${TEST_JOB} || true
 }
 
-teardown() {
-  helm just delete "${RELEASE_NAME}" -l app=create-db-user || true
+teardown_all() {
+  helm just delete "${RELEASE_NAME}" -l app=${TEST_JOB} || true
 }
 
-@test "should create a database and a user" {
+@test "helm just render "${RELEASE_NAME}" managed-pg : should render the job-${TEST_JOB}.yaml" {
   run helm just render "${RELEASE_NAME}" managed-pg \
     --set db.name="db_${HASHED}" \
     --set db.password="pass_${HASHED}" \
     --set db.user="user_${HASHED}"
 
   assert_line "Rendering chart: \"managed-pg\" as .manifests/${RELEASE_NAME}/managed-pg"
-  assert_line "wrote .tmp/${RELEASE_NAME}/managed-pg/templates/job-create-db-user.yaml"
+  assert_line "wrote .tmp/${RELEASE_NAME}/managed-pg/templates/job-${TEST_JOB}.yaml"
   assert_success
+}
 
-  JOB_ID="job.batch/${RELEASE_NAME}-managed-pg-create-db-user"
-
-  run helm just apply "${RELEASE_NAME}" -l app=create-db-user
+@test "helm just apply "${RELEASE_NAME}" -l app=${TEST_JOB} : should create the ${JOB_ID}" {
+  run helm just apply "${RELEASE_NAME}" -l app=${TEST_JOB}
   assert_output "${JOB_ID} created"
   assert_success
+}
 
-  run kubectl wait --for=condition=failed --timeout=20s "${JOB_ID}"
-  echo "" >&2
-  echo "After kubectl wait --for=condition=failed --timeout=20s" >&2
-  echo "$ kubectl logs ${JOB_ID}" >&2
-  kubectl logs "${JOB_ID}" >&2
-  refute_output "${JOB_ID} condition met"
-  assert_failure
 
-  run kubectl wait --for=condition=complete --timeout=2m "${JOB_ID}"
-  echo "" >&2
-  echo "After kubectl wait --for=condition=complete --timeout=2m" >&2
-  echo "$ kubectl logs ${JOB_ID}" >&2
-  kubectl logs "${JOB_ID}" >&2
-  assert_output "${JOB_ID} condition met"
-  assert_success
+@test "${JOB_ID} : should be successful" {
+  job_success
+}
+
+@test "${JOB_ID} : should create db_${HASHED} database and user_${HASHED} user" {
+  # TODO(douglasduteil): write a test that proves
 }

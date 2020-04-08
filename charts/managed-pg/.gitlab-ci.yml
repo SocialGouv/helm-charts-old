@@ -19,13 +19,8 @@ Test socialgouv/managed-pg:
     #
     - helm plugin install ./plugins/just
     #
-    # NOTE(douglasduteil): try to drop before tests
-    # Ensure that the database doesn't exist
-    - bats ./charts/managed-pg/test/30-drop-db-user.bats -t || true
     #
-    - bats ./charts/managed-pg/test/10-create-db-user.bats -t
-    - bats ./charts/managed-pg/test/20-migrate.bats -t
-    - bats ./charts/managed-pg/test/25-seed.bats -t
+    - bats -t ./charts/managed-pg/test
 
     #
     - export RELEASE_NAME=${RELEASE_NAME:="create-db-user-test-${CI_COMMIT_SHORT_SHA}"}
