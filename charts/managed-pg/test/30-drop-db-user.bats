@@ -23,7 +23,7 @@ teardown() {
     --set db.user="user_${HASHED}"
 
   assert_line "Rendering chart: \"managed-pg\" as .manifests/${RELEASE_NAME}/managed-pg"
-  assert_line "wrote .tmp/${RELEASE_NAME}/managed-pg/templates/job-drop-db-user.yml"
+  assert_line "wrote .tmp/${RELEASE_NAME}/managed-pg/templates/job-drop-db-user.yaml"
   assert_success
 
   run helm just apply "${RELEASE_NAME}" -l app=drop-db-user
