@@ -2,9 +2,9 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ include "managed-pg.fullname" . }}-migrate
+  name: {{ include "managed-pg.fullname" . }}-seed
   labels:
-    app: migrate
+    app: seed
 {{ include "managed-pg.labels" . | indent 4 }}
   {{- with .Values.annotations }}
   annotations:
@@ -18,13 +18,16 @@ spec:
 {{ include "managed-pg.labels" . | indent 8 }}
     spec:
       containers:
-        - name:  "{{ include "managed-pg.fullname" . }}-migrate"
-          image: "{{ .Values.migrate.image.repository }}:{{ .Values.migrate.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+        - name:  "{{ include "managed-pg.fullname" . }}-seed"
+          image: "{{ .Values.seed.image }}"
+          imagePullPolicy: IfNotPresent
           command:
-            - {{ .Values.migrate.command }}
+            - {{ .Values.seed.command }}
           args:
-            {{- toYaml .Values.migrate.args | nindent 12 }}
+            {{- toYaml .Values.seed.args | nindent 12 }}
+          envFrom:
+          - secretRef:
+              name: azure-pg-user
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:

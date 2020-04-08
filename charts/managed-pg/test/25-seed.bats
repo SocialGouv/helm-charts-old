@@ -21,13 +21,12 @@ teardown() {
     --set db.name="db_${HASHED}" \
     --set db.password="pass_${HASHED}" \
     --set db.user="user_${HASHED}" \
-    --set seed.command=psql \
-    --set seed.args[0]="-d" \
-    --set seed.args[1]="db_${HASHED}" \
-    --set seed.args[2]="-c" \
-    --set seed.args[3]="INSERT INTO test_migration VALUES(42);" \
-    --set seed.image.repository="postgres" \
-    --set seed.image.tag="11.5-alpine" \
+    --set seed.command=psql -d db_${HASHED} -c "INSERT INTO test_migration VALUES(42);" \
+    # --set seed.args[0]="-d" \
+    # --set seed.args[1]="db_${HASHED}" \
+    # --set seed.args[2]="-c" \
+    # --set seed.args[3]="INSERT INTO test_migration VALUES(42);" \
+    --set seed.image="postgres:11.5-alpine"
 
   assert_line "Rendering chart: \"managed-pg\" as .manifests/${RELEASE_NAME}/managed-pg"
   assert_line "wrote .tmp/${RELEASE_NAME}/managed-pg/templates/job-seed.yml"

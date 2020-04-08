@@ -2,9 +2,9 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ include "managed-pg.fullname" . }}-create-db-user
+  name: {{ include "managed-pg.fullname" . }}-drop-db-user
   labels:
-    app: create-db-user
+    app: drop-db-user
 {{ include "managed-pg.labels" . | indent 4 }}
   {{- with .Values.annotations }}
   annotations:
@@ -22,16 +22,17 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
-            - create-db-user
+            - drop-db-user
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          envFrom:
+          - secretRef:
+              name: azure-pg-admin-user
           env:
             {{- toYaml .Values.env | nindent 12 }}
-            # create-db-user args
-            - name: NEW_DB_NAME
+            # drop-db-user args
+            - name: DROP_DATABASE
               value: {{ .Values.db.name }}
-            - name: NEW_PASSWORD
-              value: {{ .Values.db.password }}
-            - name: NEW_USER
+            - name: DROP_USER
               value: {{ .Values.db.user }}
       restartPolicy: {{ .Values.restartPolicy }}
