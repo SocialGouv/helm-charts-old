@@ -121,7 +121,7 @@ test_delete () {
 test () {
   local release_name=$1
 
-  test_apply $1
+  test_apply "$1"
 
   kubectl get job --no-headers \
     -o custom-columns=":metadata.name" \
