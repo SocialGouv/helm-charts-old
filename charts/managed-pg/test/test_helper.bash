@@ -22,8 +22,8 @@ job_success () {
   # assert_success
 
   k8s_job_wait () {
-    echo "kubectl wait --for=condition=$1 --timeout=1m ${JOB_ID}"
-    kubectl wait --for=condition=$1 --timeout=1m "${JOB_ID}"
+    echo "kubectl wait --for=condition=$1 --timeout=2m ${JOB_ID}"
+    kubectl wait --for=condition=$1 --timeout=2m "${JOB_ID}"
     echo "k8s_job_wait $1 done with $?"
     case "${1-}" in
       "failed")
