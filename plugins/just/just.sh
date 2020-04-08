@@ -96,7 +96,7 @@ render() {
   rm -rf ${temp_directory:?} || true
 }
 
-test () {
+test_apply () {
   local release_name=$1
 
   shift;
@@ -105,6 +105,23 @@ test () {
     -f \
     "$manifests_directory/$release_name/tests" \
     "$@"
+}
+
+test_delete () {
+  local release_name=$1
+
+  shift;
+
+  kubectl delete \
+    -f \
+    "$manifests_directory/$release_name/tests" \
+    "$@"
+}
+
+test () {
+  local release_name=$1
+
+  test_apply $1
 
   kubectl get job --no-headers \
     -o custom-columns=":metadata.name" \
@@ -138,7 +155,19 @@ case "${1:-"help"}" in
     ;;
   "test"):
     shift;
-    test "$@"
+    case "${1-}" in
+      "apply")
+        shift;
+        test_apply "$@"
+      ;;
+      "delete")
+        shift;
+        test_delete "$@"
+      ;;
+      *)
+        test "$@"
+      ;;
+    esac
     ;;
   "help")
     usage

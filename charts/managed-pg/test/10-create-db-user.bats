@@ -5,14 +5,16 @@ load test_helper
 test_job "create-db-user"
 
 setup_all() {
-  helm just delete "${RELEASE_NAME}" -l app=${TEST_JOB} || true
+  helm just delete "${RELEASE_NAME}" -l app="${TEST_JOB}" || true
+  helm just test delete "${RELEASE_NAME}" -l app="test-${TEST_JOB}" || true
 }
 
 teardown_all() {
-  helm just delete "${RELEASE_NAME}" -l app=${TEST_JOB} || true
+  helm just delete "${RELEASE_NAME}" -l app="${TEST_JOB}" || true
+  helm just test delete "${RELEASE_NAME}" -l app="test-${TEST_JOB}" || true
 }
 
-@test "helm just render "${RELEASE_NAME}" managed-pg : should render the job-${TEST_JOB}.yaml" {
+@test "helm just render ${RELEASE_NAME} managed-pg : should render the job-${TEST_JOB}.yaml" {
   run helm just render "${RELEASE_NAME}" managed-pg \
     --set db.name="db_${HASHED}" \
     --set db.password="pass_${HASHED}" \
@@ -23,8 +25,8 @@ teardown_all() {
   assert_success
 }
 
-@test "helm just apply "${RELEASE_NAME}" -l app=${TEST_JOB} : should create the ${JOB_ID}" {
-  run helm just apply "${RELEASE_NAME}" -l app=${TEST_JOB}
+@test "helm just apply ${RELEASE_NAME} -l app=${TEST_JOB} : should create the ${JOB_ID}" {
+  run helm just apply "${RELEASE_NAME}" -l app="${TEST_JOB}"
   assert_output "${JOB_ID} created"
   assert_success
 }
@@ -34,6 +36,12 @@ teardown_all() {
   job_success
 }
 
-@test "${JOB_ID} : should create db_${HASHED} database and user_${HASHED} user" {
-  # TODO(douglasduteil): write a test that proves
+@test "helm just test apply ${RELEASE_NAME} -l app=${TEST_JOB} : should create the ${TEST_JOB_ID}" {
+  run helm just test apply "${RELEASE_NAME}" -l app="test-${TEST_JOB}"
+  assert_output "${TEST_JOB_ID} created"
+  assert_success
+}
+
+@test "${TEST_JOB_ID} : should create db_${HASHED} database and user_${HASHED} user" {
+  job_success
 }

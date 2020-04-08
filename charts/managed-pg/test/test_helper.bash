@@ -12,13 +12,14 @@ test_job () {
   RELEASE_NAME=${RELEASE_NAME:="${TEST_JOB}-test-${HASHED}"}
   JOB_NAME="${RELEASE_NAME}-managed-pg-${TEST_JOB}"
   JOB_ID="job.batch/${JOB_NAME}"
+  TEST_JOB_ID="job.batch/test-${JOB_NAME}"
 }
 
 job_success () {
-  run kubectl wait --for=condition=failed --timeout=20s "${JOB_ID}"
+  run kubectl wait --for=condition=failed --timeout=10s "${JOB_ID}"
   echo "" >&2
   echo "# Fast fail detection" >&2
-  echo "$ kubectl wait --for=condition=failed --timeout=20s ${JOB_ID}" >&2
+  echo "$ kubectl wait --for=condition=failed --timeout=10s ${JOB_ID}" >&2
   echo "$ kubectl get pod -l job-name=${JOB_NAME}" >&2
   kubectl get pod -l job-name="${JOB_NAME}" >&2
   echo "$ kubectl get events --sort-by='{.lastTimestamp}' | tac | head" >&2

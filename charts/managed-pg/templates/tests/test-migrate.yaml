@@ -4,6 +4,7 @@ metadata:
   name: "test-{{ include "managed-pg.fullname" . }}-migrate"
   labels:
     just: test
+    app: test-migrate
 {{ include "managed-pg.labels" . | indent 4 }}
 spec:
   backoffLimit: 0
@@ -23,6 +24,9 @@ spec:
             - psql ${NEW_DB_NAME} -qtA -c 'SELECT * from test_migration';
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          envFrom:
+            - secretRef:
+                name: azure-pg-user
           env:
             {{- toYaml .Values.env | nindent 12 }}
             - name: NEW_DB_NAME
