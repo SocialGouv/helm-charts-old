@@ -1,3 +1,11 @@
+# [6.1.0](https://github.com/SocialGouv/helm-charts/compare/v6.0.0...v6.1.0) (2020-04-20)
+
+
+### Features
+
+* **app:** add deployment.envFrom ([#68](https://github.com/SocialGouv/helm-charts/issues/68)) ([fe27155](https://github.com/SocialGouv/helm-charts/commit/fe27155f48e7ada9dcd89f1e7e962c56a8a318fe))
+* **just:** increase test timeout ([#62](https://github.com/SocialGouv/helm-charts/issues/62)) ([90b4c6b](https://github.com/SocialGouv/helm-charts/commit/90b4c6bd7c89e11612c11a3bf4f3f23b8d4f5efa))
+
 # [6.0.0](https://github.com/SocialGouv/helm-charts/compare/v5.2.2...v6.0.0) (2020-04-06)
 
 
