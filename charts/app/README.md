@@ -52,6 +52,7 @@ The following table lists the configurable parameters of the chart and their def
 | `image.tag`                                            | NodeJs Image tag                              | `lts-alpine`                          |
 | `deployment.annotations`                               | Annotations for the Deployment                | `{}`                                  |
 | `deployment.env`                                       | Environment variables                         | `[{PORT: 80, NODE_ENV: "production"}` |
+| `deployment.envFrom`                                   | Environment variables from secrets            | `null`                                |
 | `deployment.imagePullSecrets`                          | Specify Image pull secrets                    | `[]`                                  |
 | `deployment.initContainers`                            | Init Containers                               | `[]`                                  |
 | `deployment.livenessProbe.initialDelaySeconds`         | Delay before first liveness                   | `5`                                   |

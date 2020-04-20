@@ -55,6 +55,10 @@ spec:
             {{- toYaml .Values.deployment.resources | nindent 12 }}
           env:
             {{- toYaml .Values.deployment.env | nindent 12}}
+          {{- with .Values.deployment.envFrom }}
+          envFrom:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
       {{- with .Values.deployment.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
