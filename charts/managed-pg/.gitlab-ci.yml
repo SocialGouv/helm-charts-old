@@ -9,8 +9,8 @@ Test socialgouv/managed-pg:
     JUST_CHARTS_DIRECTORY: charts
   script:
     - kubectl config set-context --current --namespace=helm-charts-managed-pg
-    - >- # Copy `azure-pg-admin-user` secret to `helm-charts-managed-pg`
-      kubectl get secrets -n helm-charts-secret azure-pg-admin-user -o yaml |
+    # Copy `azure-pg-admin-user` secret to `helm-charts-managed-pg`
+    - kubectl get secrets -n helm-charts-secret azure-pg-admin-user -o yaml |
         sed 's/namespace: helm-charts-secret/namespace: helm-charts-managed-pg/' |
         kubectl apply -f -
 
