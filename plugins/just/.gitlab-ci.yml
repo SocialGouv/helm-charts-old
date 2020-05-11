@@ -13,7 +13,10 @@ Test Just Plugin 1 2:
   image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:1.15.0
   script:
     - helm init --client-only
-    - helm plugin remove just ; helm plugin install ./plugins/just
+    # NOTE(douglasduteil): remove preinstalled plugin
+    # helm plugin remove just
+    - rm -rf /root/.helm/plugins/just
+    - helm plugin install ./plugins/just
     #
     - helm just fetch "socialgouv/nodejs#2.4.1"
     - helm just render my-server-${CI_JOB_ID} nodejs
