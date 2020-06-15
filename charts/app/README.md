@@ -68,8 +68,8 @@ The following table lists the configurable parameters of the chart and their def
 | `deployment.readinessProbe.timeoutSeconds`             | Probe request timeout                          | `10`                                  |
 | `deployment.replicaCount`                              | replica count                                  | `1`                                   |
 | `deployment.resources`                                 | CPU/Memory resource requests/limits            | Memory: `16-32Mi`, CPU: `5-50m`       |
-| `deployment.volumes`                                   | The volumes you need to define                 | `[]`                                  |
 | `deployment.volumeMounts`                              | The volumes you need to mount on the container | `[]`                                  |
+| `deployment.volumes`                                   | The volumes you need to define                 | `[]`                                  |
 | `ingress.annotations`                                  | Annotations for the Ingress                    | `{}`                                  |
 | `ingress.enabled`                                      | Enable ingress                                 | `false`                               |
 | `ingress.hosts`                                        | Hosts for the Ingress                          | `[]`                                  |
