@@ -45,11 +45,11 @@ deployment:
 
       volumeMounts:
         - mountPath: /cache
-          ame: cache-volume
+          name: cache-volume
 
   volumeMounts:
     - mountPath: /cache
-      ame: cache-volume
+      name: cache-volume
 
   volumes:
     - name: cache-volume
