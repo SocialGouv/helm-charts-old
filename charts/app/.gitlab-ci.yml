@@ -17,15 +17,15 @@ Test socialgouv/app:
     #
     - kubectl config set-context --current --namespace=helm-charts-app
     - helm init --client-only
-    - helm delete --purge helm-chart-app-${CI_JOB_ID} || true
+    - helm delete --purge chart-app-${CI_JOB_ID} || true
     - helm upgrade
-        helm-chart-app-${CI_JOB_ID}
-        ./charts/app
-        --debug
-        --install
-        --values /tmp/values.socialgouv.yaml
-        --values /tmp/values.yaml
-        --wait
-    - helm test helm-chart-app-${CI_JOB_ID} --cleanup --debug
+      chart-app-${CI_JOB_ID}
+      ./charts/app
+      --debug
+      --install
+      --values /tmp/values.socialgouv.yaml
+      --values /tmp/values.yaml
+      --wait
+    - helm test chart-app-${CI_JOB_ID} --cleanup --debug
   after_script:
-    - helm delete --purge helm-chart-app-${CI_JOB_ID} || true
+    - helm delete --purge chart-app-${CI_JOB_ID} || true
