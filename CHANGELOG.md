@@ -1,3 +1,10 @@
+# [6.2.0](https://github.com/SocialGouv/helm-charts/compare/v6.1.0...v6.2.0) (2020-06-15)
+
+
+### Features
+
+* **app:** add deployment.volumes ([#79](https://github.com/SocialGouv/helm-charts/issues/79)) ([b5957f4](https://github.com/SocialGouv/helm-charts/commit/b5957f4c2f08d489a9a3ece0fbc1135fb73055fe))
+
 # [6.1.0](https://github.com/SocialGouv/helm-charts/compare/v6.0.0...v6.1.0) (2020-04-20)
 
 
