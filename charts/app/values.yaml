@@ -17,15 +17,15 @@ image:
 # fullnameOverride:
 
 ## Extra label to add deploy, srv, and ing
+
 labels: {}
-  ## For example:
-  # owner: default # where the project is in the cluster
-  # team: helm-charts # the github "team" or repo name
+## For example:
+#  owner: default # where the project is in the cluster
+#  team: helm-charts # the github "team" or repo name
 
 ## App deployment configuration
 ##
 deployment:
-
   annotations: {}
   # app.gitlab.com/app: ${CI_PROJECT_PATH_SLUG}
   # app.gitlab.com/env: ${CI_ENVIRONMENT_SLUG}
@@ -72,21 +72,17 @@ deployment:
     - name: NODE_ENV
       value: "production"
 
-  ## Set `ingress.enabled` to `true` to enable ingress
-  ##
   nodeSelector: {}
 
-  ## Set `ingress.enabled` to `true` to enable ingress
-  ##
   tolerations: []
 
-  ## Set `ingress.enabled` to `true` to enable ingress
-  ##
   affinity: {}
 
-  ## Set `ingress.enabled` to `true` to enable ingress
-  ##
   initContainers: []
+
+  volumeMounts: []
+
+  volumes: []
 
 ## App ingress configuration
 ##
@@ -95,19 +91,19 @@ ingress:
   ##
   enabled: false
   annotations: {}
-    # appgw.ingress.kubernetes.io/ssl-redirect: "true"
-    # certmanager.k8s.io/cluster-issuer: letsencrypt-staging
-    # kubernetes.io/ingress.class: "azure/application-gateway"
-    # kubernetes.io/tls-acme: "true"
+  #   appgw.ingress.kubernetes.io/ssl-redirect: "true"
+  #   certmanager.k8s.io/cluster-issuer: letsencrypt-staging
+  #   kubernetes.io/ingress.class: "azure/application-gateway"
+  #   kubernetes.io/tls-acme: "true"
   hosts: []
-    # - host: test.app.dev.fabrique.social.gouv.fr
-    #   paths:
-    #     - path: /
-    #       servicePort: 80
+  #   - host: test.app.dev.fabrique.social.gouv.fr
+  #     paths:
+  #       - path: /
+  #         servicePort: 80
   tls: []
-    # - hosts:
-    #     - test.app.dev.fabrique.social.gouv.fr
-    #   secretName: app-crt
+  #   - hosts:
+  #       - test.app.dev.fabrique.social.gouv.fr
+  #     secretName: app-crt
 
 ## App service configuration
 ##

@@ -1,7 +1,7 @@
-include:
-  - /charts/app/.gitlab-ci.yml
-  - /charts/managed-pg/.gitlab-ci.yml
-  - /plugins/just/.gitlab-ci.yml
+#include:
+#  - /charts/app/.gitlab-ci.yml
+#  - /charts/managed-pg/.gitlab-ci.yml
+#  - /plugins/just/.gitlab-ci.yml
 
 #
 
@@ -17,7 +17,7 @@ stages:
 
 Lint:
   stage: "Code Quality"
-  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:0.29.0
+  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:1.15.0
   script:
     - helm lint charts/*
 

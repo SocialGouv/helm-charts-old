@@ -35,6 +35,26 @@ deployment:
         - |
           echo Ready;
 
+    - name: test-volumes-mounts
+      image: alpine:3.10
+      command:
+        - sh
+        - -c
+        - |
+          echo Ready;
+
+      volumeMounts:
+        - mountPath: /cache
+          name: cache-volume
+
+  volumeMounts:
+    - mountPath: /cache
+      name: cache-volume
+
+  volumes:
+    - name: cache-volume
+      emptyDir: {}
+
 ingress:
   enabled: true
   annotations:
