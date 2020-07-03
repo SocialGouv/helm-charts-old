@@ -4,7 +4,7 @@ Test socialgouv/managed-pg:
   stage: "Code Quality"
   environment:
     name: fabrique-dev
-  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:1.0.0
+  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:1.2.0
   variables:
     JUST_CHARTS_DIRECTORY: charts
   script:
@@ -24,21 +24,9 @@ Test socialgouv/managed-pg:
     #
     - helm plugin install ./plugins/just
     #
-    # NOTE(douglasduteil): try to drop before tests
-    # Ensure that the database doesn't exist
-    - bats ./charts/managed-pg/test/30-drop-db-user.bats -t || true
     #
-    - bats ./charts/managed-pg/test/10-create-db-user.bats -t
-    - bats ./charts/managed-pg/test/20-migrate.bats -t
-    - bats ./charts/managed-pg/test/25-seed.bats -t
-
     #
-    - export RELEASE_NAME=${RELEASE_NAME:="create-db-user-test-${CI_COMMIT_SHORT_SHA}"}
-    - helm just test "${RELEASE_NAME}"
-
-    #
-    - bats ./charts/managed-pg/test/30-drop-db-user.bats -t
-    # todo: test DB destroyed
+    - bats -t ./charts/managed-pg/test
 
   after_script:
     - kubectl config set-context --current --namespace=helm-charts-managed-pg

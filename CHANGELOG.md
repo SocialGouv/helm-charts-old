@@ -1,8 +1,11 @@
+# [6.1.0-alpha.1](https://github.com/SocialGouv/helm-charts/compare/v6.0.0...v6.1.0-alpha.1) (2020-04-08)
 # [6.2.0](https://github.com/SocialGouv/helm-charts/compare/v6.1.0...v6.2.0) (2020-06-15)
 
 
 ### Features
 
+* **just:** increase test timeout ([#62](https://github.com/SocialGouv/helm-charts/issues/62)) ([90b4c6b](https://github.com/SocialGouv/helm-charts/commit/90b4c6bd7c89e11612c11a3bf4f3f23b8d4f5efa))
+* **managed-db:** simpler ([#65](https://github.com/SocialGouv/helm-charts/issues/65)) ([23c7168](https://github.com/SocialGouv/helm-charts/commit/23c71687f310a5eab33e46181ace85c0257aaf73))
 * **app:** add deployment.volumes ([#79](https://github.com/SocialGouv/helm-charts/issues/79)) ([b5957f4](https://github.com/SocialGouv/helm-charts/commit/b5957f4c2f08d489a9a3ece0fbc1135fb73055fe))
 
 # [6.1.0](https://github.com/SocialGouv/helm-charts/compare/v6.0.0...v6.1.0) (2020-04-20)

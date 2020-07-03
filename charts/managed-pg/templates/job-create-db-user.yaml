@@ -1,10 +1,15 @@
+---
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: "test-{{ include "managed-pg.fullname" . }}-create-db"
+  name: {{ include "managed-pg.fullname" . }}-create-db-user
   labels:
-    just: test
+    app: create-db-user
 {{ include "managed-pg.labels" . | indent 4 }}
+  {{- with .Values.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec:
   backoffLimit: 0
   template:
@@ -13,19 +18,23 @@ spec:
 {{ include "managed-pg.labels" . | indent 8 }}
     spec:
       containers:
-        - name:  "test-if-db-exists"
-          image: "postgres:11.5-alpine"
+        - name:  {{ include "managed-pg.fullname" . }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
-            - sh
-          args:
-            - -c
-            - psql ${NEW_DB_NAME} -qtA -c '\du'
+            - create-db-user
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          envFrom:
+            - secretRef:
+                name: azure-pg-admin-user
           env:
             {{- toYaml .Values.env | nindent 12 }}
             # create-db-user args
             - name: NEW_DB_NAME
               value: {{ .Values.db.name }}
+            - name: NEW_PASSWORD
+              value: {{ .Values.db.password }}
+            - name: NEW_USER
+              value: {{ .Values.db.user }}
       restartPolicy: {{ .Values.restartPolicy }}

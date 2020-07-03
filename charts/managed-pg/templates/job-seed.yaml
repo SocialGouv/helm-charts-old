@@ -19,12 +19,15 @@ spec:
     spec:
       containers:
         - name:  "{{ include "managed-pg.fullname" . }}-seed"
-          image: "{{ .Values.seed.image.repository }}:{{ .Values.seed.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          image: "{{ .Values.seed.image }}"
+          imagePullPolicy: IfNotPresent
           command:
             - {{ .Values.seed.command }}
           args:
             {{- toYaml .Values.seed.args | nindent 12 }}
+          envFrom:
+            - secretRef:
+                name: azure-pg-user
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:

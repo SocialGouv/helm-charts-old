@@ -2,9 +2,9 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ include "managed-pg.fullname" . }}-drop-db-user
+  name: {{ include "managed-pg.fullname" . }}-migrate
   labels:
-    app: drop-db-user
+    app: migrate
 {{ include "managed-pg.labels" . | indent 4 }}
   {{- with .Values.annotations }}
   annotations:
@@ -18,18 +18,18 @@ spec:
 {{ include "managed-pg.labels" . | indent 8 }}
     spec:
       containers:
-        - name:  {{ include "managed-pg.fullname" . }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+        - name:  "{{ include "managed-pg.fullname" . }}-migrate"
+          image: "{{ .Values.migrate.image }}"
+          imagePullPolicy: IfNotPresent
           command:
-            - drop-db-user
+            - {{ .Values.migrate.command }}
+          args:
+            {{- toYaml .Values.migrate.args | nindent 12 }}
+          envFrom:
+            - secretRef:
+                name: azure-pg-user
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
             {{- toYaml .Values.env | nindent 12 }}
-            # drop-db-user args
-            - name: DROP_DATABASE
-              value: {{ .Values.db.name }}
-            - name: DROP_USER
-              value: {{ .Values.db.user }}
       restartPolicy: {{ .Values.restartPolicy }}

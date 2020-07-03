@@ -4,6 +4,7 @@ metadata:
   name: "test-{{ include "managed-pg.fullname" . }}-seed"
   labels:
     just: test
+    app: test-seed
 {{ include "managed-pg.labels" . | indent 4 }}
 spec:
   backoffLimit: 0
@@ -24,6 +25,9 @@ spec:
             - psql ${NEW_DB_NAME} -Xtc "select * from test_migration where id=43" | egrep .
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          envFrom:
+            - secretRef:
+                name: azure-pg-user
           env:
             {{- toYaml .Values.env | nindent 12 }}
             - name: NEW_DB_NAME
