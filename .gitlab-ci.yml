@@ -1,7 +1,7 @@
-include:
-  - /charts/app/.gitlab-ci.yml
-  - /charts/managed-pg/.gitlab-ci.yml
-  - /plugins/just/.gitlab-ci.yml
+#include:
+#  - /charts/app/.gitlab-ci.yml
+#  - /charts/managed-pg/.gitlab-ci.yml
+#  - /plugins/just/.gitlab-ci.yml
 
 #
 
