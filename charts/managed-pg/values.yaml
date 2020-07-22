@@ -6,7 +6,7 @@
 ## Most jobs need our `azure-db` image to work
 image:
   repository: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/azure-db
-  tag: "1.15.0"
+  tag: "1.49.0"
   pullPolicy: IfNotPresent
 
 # image used to migrate the database with migrate-db
