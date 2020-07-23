@@ -10,7 +10,7 @@ Test Just Plugin 1 2:
   stage: "Code Quality"
   environment:
     name: fabrique-dev
-  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:1.15.0
+  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:1.49.0
   script:
     - helm init --client-only
     # NOTE(douglasduteil): remove preinstalled plugin
