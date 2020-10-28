@@ -4,7 +4,7 @@ Test socialgouv/app:
   stage: "Code Quality"
   environment:
     name: fabrique-dev
-  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:1.49.0
+  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:1.60.0
   script:
     # Use default socialgouv values
     # The `values.socialgouv.yaml` requires a PORT to be defined !
