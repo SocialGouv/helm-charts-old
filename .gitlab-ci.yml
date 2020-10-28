@@ -25,7 +25,7 @@ Lint:
 
 Release:
   stage: "Release"
-  image: node:14
+  image: node:15
   only:
     refs:
       - branches
