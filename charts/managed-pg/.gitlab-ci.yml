@@ -4,7 +4,7 @@ Test socialgouv/managed-pg:
   stage: "Code Quality"
   environment:
     name: fabrique-dev
-  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:1.49.0
+  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/helm:4.5.3
   variables:
     JUST_CHARTS_DIRECTORY: charts
   script:
